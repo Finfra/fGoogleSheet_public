@@ -1,0 +1,161 @@
+/* Localizable.strings (ko) - fGoogleSheet */
+/* 한국어 (기본 언어) */
+
+/* === Common === */
+"common.confirm" = "확인";
+"common.cancel" = "취소";
+"common.save" = "저장";
+"common.close" = "닫기";
+
+/* === Settings Tabs === */
+"config.tab.general" = "일반";
+"config.tab.sheet" = "시트";
+"config.tab.auth" = "인증";
+
+/* === ContentView === */
+"content.key.label" = "Key (질문):";
+"content.value.label" = "Value (답변):";
+"content.button.clear" = "클리어 (cmd+k)";
+"content.button.check" = "수동입력 확인 (cmd+f)";
+"content.button.execute" = "실행 (cmd+r)";
+"content.button.settings" = "설정";
+"content.alert.unanswered.title" = "❓ 답변이 없는 질문 발견!";
+"content.alert.unanswered.found %lld" = "%lld개의 답변이 없는 질문이 있습니다.";
+"content.alert.unanswered.none" = "현재 답변이 없는 질문이 없습니다.";
+"content.alert.keyEmpty.title" = "⚠️ Key 필드가 비어있습니다!";
+"content.alert.keyEmpty.message" = "질문(Key)을 입력해주세요.";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "Next Row:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "설정 편집";
+"config.shortUrl.label" = "Short URL (화면 표시용)";
+"config.shortUrl.placeholder" = "ex) 강의 노트, Q&A 시트";
+"config.shortUrl.help" = "화면에 표시될 간단한 이름을 입력하세요";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "Google Sheets의 전체 URL을 입력하세요";
+"config.currentRow.label" = "현재 행 번호";
+"config.currentRow.placeholder" = "행 번호 (1-1000)";
+"config.currentRow.help" = "다음에 입력할 행 번호를 설정하세요";
+"config.fontSize.label" = "입력창 폰트 크기";
+"config.fontSize.placeholder" = "폰트 크기 (12-128)";
+"config.fontSize.preview" = "예시: ABC abc 한글";
+"config.fontSize.help" = "입력창에 사용될 폰트 크기를 설정하세요 (기본: 64pt)";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "설정 시 OAuth 없이 읽기/쓰기 가능 (우선 사용됨)";
+"config.appsScript.active" = "Apps Script 모드 활성";
+"config.apiKey.label" = "Google Sheets API Key";
+"config.apiKey.placeholder" = "API Key 입력";
+"config.apiKey.help" = "Google Cloud Console에서 발급받은 API Key를 입력하세요";
+"config.sheetName.label" = "시트 탭 이름";
+"config.sheetName.placeholder" = "시트 탭 이름 (기본: Sheet1)";
+"config.sheetName.help" = "Google Sheets에서 데이터를 입력할 탭 이름";
+"config.oauth.label" = "OAuth 2.0 인증 (쓰기용)";
+"config.oauth.authenticating" = "인증 중...";
+"config.oauth.login" = "Google 로그인";
+"config.oauth.authenticated" = "인증됨";
+"config.oauth.logout" = "로그아웃";
+"config.oauth.logoutComplete" = "로그아웃 완료";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID (Desktop 유형)";
+"config.oauth.unavailable" = "인증 서비스를 사용할 수 없습니다";
+"config.oauth.success" = "인증 완료!";
+"config.oauth.failure %@" = "인증 실패: %@";
+"config.hideApp.label" = "실행 후 앱 숨기기";
+"config.hideApp.toggle" = "실행 완료 후 자동으로 앱 숨기기";
+"config.hideApp.help" = "단, 답변이 없는 질문이 발견되면 앱을 숨기지 않습니다";
+"config.validation.invalidUrl" = "유효한 Google Sheets URL이 아닙니다";
+"config.validation.invalidRow" = "행 번호는 1-1000 범위여야 합니다";
+"config.validation.invalidFontSize" = "폰트 크기는 12-128pt 범위여야 합니다";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js 환경 점검 결과";
+"nodeEnv.subtitle" = "앱이 정상적으로 작동하려면 아래 문제를 해결해야 합니다.";
+"nodeEnv.copyAll" = "전체 명령어 복사";
+"nodeEnv.copyCommand" = "명령어 복사";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js가 설치되어 있지 않습니다";
+"nodeCheck.noNode.desc" = "이 앱은 Google Sheets 연동을 위해 Node.js가 필요합니다. Node.js를 설치해주세요.";
+"nodeCheck.oldVersion.title %@" = "Node.js 버전이 너무 낮습니다 (%@)";
+"nodeCheck.oldVersion.desc %lld %@" = "최소 v%lld 이상이 필요합니다. 현재 %@ 버전이 설치되어 있습니다.";
+"nodeCheck.noModules.title" = "npm 패키지가 설치되어 있지 않습니다";
+"nodeCheck.noModules.desc" = "Node.js 모듈 실행에 필요한 패키지(express, playwright 등)가 설치되지 않았습니다.";
+"nodeCheck.missingPkgs.title" = "일부 npm 패키지가 누락되었습니다";
+"nodeCheck.missingPkgs.desc %@" = "누락된 패키지: %@";
+"nodeCheck.noPlaywright.title" = "Playwright 브라우저(Chromium)가 설치되어 있지 않습니다";
+"nodeCheck.noPlaywright.desc" = "Google Sheets 자동 입력을 위해 Chromium 브라우저가 필요합니다. Playwright를 통해 설치해주세요.";
+"nodeCheck.noChromium.title" = "Playwright Chromium 브라우저가 설치되어 있지 않습니다";
+"nodeCheck.noChromium.desc" = "Playwright 캐시에 Chromium이 없습니다. Chromium을 설치해주세요.";
+"nodeCheck.cantReadDir.title" = "Playwright 브라우저 디렉토리를 읽을 수 없습니다";
+"nodeCheck.cantReadDir.desc %@" = "Playwright 캐시 디렉토리 접근에 실패했습니다: %@";
+
+/* === DataManager (상태 메시지) === */
+"status.initializing" = "🚀 초기화 중... (Playwright 서버 시작)";
+"status.initComplete" = "✅ 초기화 완료!";
+"status.initFailed" = "❌ 초기화 실패: Playwright 서버 시작 오류";
+"status.loadingConfig" = "📋 설정 로드 중...";
+"status.saving" = "💾 저장 중...";
+"status.executing" = "🚀 Playwright로 Google Sheets에 입력 중...";
+"status.complete %lld" = "✅ 완료! (%lld행)";
+"status.complete.simple" = "✅ 완료!";
+"status.unanswered %lld" = "❓ %lld개의 답변이 없는 질문이 발견되었습니다!";
+"status.needsRestart" = "🔄 브라우저 재연결 필요";
+"status.addLineFailed" = "❌ 실패: addLine 명령 오류 - Playwright 서버가 실행 중인지 확인하세요";
+"status.failed %@" = "❌ 실패: %@";
+"status.checkingQuestions" = "🔍 답변이 없는 질문 확인 중...";
+"status.noUnanswered" = "답변이 없는 질문이 없습니다.";
+"status.foundUnanswered %lld" = "%lld개의 답변이 없는 질문이 발견되었습니다!";
+"status.nodeEnvIssues %lld %lld" = "⚠️ Node.js 환경 문제 %lld건 발견 (심각: %lld건)";
+"status.restartingBrowser" = "🔄 브라우저 재시작 중...";
+"status.restartComplete" = "✅ 브라우저 재시작 완료!";
+"status.restartFailed" = "❌ 브라우저 재시작 실패";
+
+/* === ContentView (질문 알림 상세) === */
+"content.alert.unanswered.detail %lld %@" = "%lld개의 답변이 없는 질문이 있습니다.\n\n질문들:\n%@";
+"content.alert.unanswered.row %lld %@" = "• %lld행: %@";
+
+/* === ConfigEditView (추가) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "파일 저장 실패: %@";
+"error.fileRead %@" = "파일 읽기 실패: %@";
+"error.scriptExecution %lld" = "스크립트 실행 실패 (코드: %lld)";
+"error.invalidInput %@" = "입력 오류: %@";
+"error.configValidation %@" = "설정 오류: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "인증 정보가 없습니다. API Key 또는 OAuth 토큰을 설정해주세요.";
+"error.sheets.invalidUrl %@" = "잘못된 URL: %@";
+"error.sheets.invalidResponse" = "서버 응답을 처리할 수 없습니다.";
+"error.sheets.httpError %lld" = "HTTP 오류 (코드: %lld)";
+"error.sheets.apiError %lld %@" = "Google Sheets API 오류 (%lld): %@";
+"error.sheets.noSpreadsheetId" = "Google Sheets URL에서 Spreadsheet ID를 찾을 수 없습니다.";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "OAuth Client ID가 설정되지 않았습니다. 설정에서 입력해주세요.";
+"error.auth.noRefreshToken" = "로그인이 필요합니다. Google 로그인을 먼저 수행해주세요.";
+"error.auth.invalidAuthUrl" = "인증 URL 생성에 실패했습니다.";
+"error.auth.tokenExchangeFailed" = "토큰 교환에 실패했습니다. Client ID/Secret을 확인해주세요.";
+"error.auth.timeout" = "인증 시간이 초과되었습니다. 다시 시도해주세요.";
+"error.auth.serverStartFailed" = "로컬 인증 서버 시작에 실패했습니다.";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "인증 완료!";
+"auth.html.success.message" = "이 창을 닫고 fGoogleSheet 앱으로 돌아가세요.";
+"auth.html.failure.title" = "인증 실패";
+"auth.html.failure.message" = "다시 시도해주세요.";
+
+/* === Language Settings === */
+"config.language.label" = "언어";
+"config.language.help" = "앱 표시 언어를 변경합니다 (재시작 필요)";
+"config.language.system" = "시스템 기본값";
+"config.language.restartTitle" = "언어 변경됨";
+"config.language.restartMessage" = "언어 변경을 적용하려면 앱을 재시작해야 합니다.";
+"config.language.restartNow" = "지금 재시작";
+"config.language.restartLater" = "나중에";

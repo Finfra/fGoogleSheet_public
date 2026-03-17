@@ -1,0 +1,161 @@
+/* Localizable.strings (zh-Hans) - fGoogleSheet */
+/* 简体中文 */
+
+/* === Common === */
+"common.confirm" = "确定";
+"common.cancel" = "取消";
+"common.save" = "保存";
+"common.close" = "关闭";
+
+/* === Settings Tabs === */
+"config.tab.general" = "通用";
+"config.tab.sheet" = "表格";
+"config.tab.auth" = "认证";
+
+/* === ContentView === */
+"content.key.label" = "Key（问题）:";
+"content.value.label" = "Value（回答）:";
+"content.button.clear" = "清除 (cmd+k)";
+"content.button.check" = "验证输入 (cmd+f)";
+"content.button.execute" = "执行 (cmd+r)";
+"content.button.settings" = "设置";
+"content.alert.unanswered.title" = "❓ 发现未回答的问题！";
+"content.alert.unanswered.found %lld" = "发现%lld个未回答的问题。";
+"content.alert.unanswered.none" = "目前没有未回答的问题。";
+"content.alert.keyEmpty.title" = "⚠️ Key字段为空！";
+"content.alert.keyEmpty.message" = "请输入问题（Key）。";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "下一行:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "编辑设置";
+"config.shortUrl.label" = "短URL（显示名称）";
+"config.shortUrl.placeholder" = "例）课程笔记、问答表";
+"config.shortUrl.help" = "输入要在屏幕上显示的简短名称";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "输入完整的Google Sheets URL";
+"config.currentRow.label" = "当前行号";
+"config.currentRow.placeholder" = "行号 (1-1000)";
+"config.currentRow.help" = "设置下一个输入的行号";
+"config.fontSize.label" = "输入字体大小";
+"config.fontSize.placeholder" = "字体大小 (12-128)";
+"config.fontSize.preview" = "示例: ABC abc 文本";
+"config.fontSize.help" = "设置输入框的字体大小（默认: 64pt）";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "配置后可无需OAuth进行读写（优先使用）";
+"config.appsScript.active" = "Apps Script模式已启用";
+"config.apiKey.label" = "Google Sheets API Key";
+"config.apiKey.placeholder" = "输入API Key";
+"config.apiKey.help" = "输入从Google Cloud Console获取的API Key";
+"config.sheetName.label" = "工作表标签名";
+"config.sheetName.placeholder" = "工作表标签名（默认: Sheet1）";
+"config.sheetName.help" = "Google Sheets中用于数据输入的标签名";
+"config.oauth.label" = "OAuth 2.0 认证（写入用）";
+"config.oauth.authenticating" = "认证中...";
+"config.oauth.login" = "Google登录";
+"config.oauth.authenticated" = "已认证";
+"config.oauth.logout" = "退出登录";
+"config.oauth.logoutComplete" = "已退出登录";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID（桌面类型）";
+"config.oauth.unavailable" = "认证服务不可用";
+"config.oauth.success" = "认证完成！";
+"config.oauth.failure %@" = "认证失败: %@";
+"config.hideApp.label" = "执行后隐藏应用";
+"config.hideApp.toggle" = "执行完成后自动隐藏应用";
+"config.hideApp.help" = "如果发现未回答的问题，则不会隐藏应用";
+"config.validation.invalidUrl" = "无效的Google Sheets URL";
+"config.validation.invalidRow" = "行号必须在1-1000范围内";
+"config.validation.invalidFontSize" = "字体大小必须在12-128pt范围内";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js 环境检查结果";
+"nodeEnv.subtitle" = "应用正常运行需要解决以下问题。";
+"nodeEnv.copyAll" = "复制所有命令";
+"nodeEnv.copyCommand" = "复制命令";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js未安装";
+"nodeCheck.noNode.desc" = "此应用需要Node.js来连接Google Sheets。请安装Node.js。";
+"nodeCheck.oldVersion.title %@" = "Node.js版本过旧（%@）";
+"nodeCheck.oldVersion.desc %lld %@" = "需要最低v%lld或更高版本。当前安装的是%@。";
+"nodeCheck.noModules.title" = "npm包未安装";
+"nodeCheck.noModules.desc" = "运行Node.js模块所需的包（express、playwright等）未安装。";
+"nodeCheck.missingPkgs.title" = "部分npm包缺失";
+"nodeCheck.missingPkgs.desc %@" = "缺失的包: %@";
+"nodeCheck.noPlaywright.title" = "Playwright浏览器（Chromium）未安装";
+"nodeCheck.noPlaywright.desc" = "Google Sheets自动化需要Chromium浏览器。请通过Playwright安装。";
+"nodeCheck.noChromium.title" = "Playwright Chromium浏览器未安装";
+"nodeCheck.noChromium.desc" = "Playwright缓存中未找到Chromium。请安装Chromium。";
+"nodeCheck.cantReadDir.title" = "无法读取Playwright浏览器目录";
+"nodeCheck.cantReadDir.desc %@" = "访问Playwright缓存目录失败: %@";
+
+/* === DataManager === */
+"status.initializing" = "🚀 初始化中...（启动Playwright服务器）";
+"status.initComplete" = "✅ 初始化完成！";
+"status.initFailed" = "❌ 初始化失败: Playwright服务器启动错误";
+"status.loadingConfig" = "📋 加载设置中...";
+"status.saving" = "💾 保存中...";
+"status.executing" = "🚀 通过Playwright写入Google Sheets...";
+"status.complete %lld" = "✅ 完成！（第%lld行）";
+"status.complete.simple" = "✅ 完成！";
+"status.unanswered %lld" = "❓ 发现%lld个未回答的问题！";
+"status.needsRestart" = "🔄 需要重新连接浏览器";
+"status.addLineFailed" = "❌ 失败: addLine命令错误 - 请检查Playwright服务器是否正在运行";
+"status.failed %@" = "❌ 失败: %@";
+"status.checkingQuestions" = "🔍 检查未回答的问题中...";
+"status.noUnanswered" = "没有未回答的问题。";
+"status.foundUnanswered %lld" = "发现%lld个未回答的问题！";
+"status.nodeEnvIssues %lld %lld" = "⚠️ 发现%lld个Node.js环境问题（严重: %lld个）";
+"status.restartingBrowser" = "🔄 重启浏览器中...";
+"status.restartComplete" = "✅ 浏览器重启完成！";
+"status.restartFailed" = "❌ 浏览器重启失败";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "发现%lld个未回答的问题。\n\n问题:\n%@";
+"content.alert.unanswered.row %lld %@" = "• 第%lld行: %@";
+
+/* === ConfigEditView (补充) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "文件保存失败: %@";
+"error.fileRead %@" = "文件读取失败: %@";
+"error.scriptExecution %lld" = "脚本执行失败（代码: %lld）";
+"error.invalidInput %@" = "输入错误: %@";
+"error.configValidation %@" = "配置错误: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "没有认证信息。请设置API Key或OAuth令牌。";
+"error.sheets.invalidUrl %@" = "无效的URL: %@";
+"error.sheets.invalidResponse" = "无法处理服务器响应。";
+"error.sheets.httpError %lld" = "HTTP错误（代码: %lld）";
+"error.sheets.apiError %lld %@" = "Google Sheets API错误（%lld）: %@";
+"error.sheets.noSpreadsheetId" = "无法从Google Sheets URL中找到Spreadsheet ID。";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "未设置OAuth Client ID。请在设置中输入。";
+"error.auth.noRefreshToken" = "需要登录。请先进行Google登录。";
+"error.auth.invalidAuthUrl" = "认证URL生成失败。";
+"error.auth.tokenExchangeFailed" = "令牌交换失败。请检查Client ID/Secret。";
+"error.auth.timeout" = "认证超时。请重试。";
+"error.auth.serverStartFailed" = "本地认证服务器启动失败。";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "认证完成！";
+"auth.html.success.message" = "请关闭此窗口并返回fGoogleSheet应用。";
+"auth.html.failure.title" = "认证失败";
+"auth.html.failure.message" = "请重试。";
+
+/* === Language Settings === */
+"config.language.label" = "语言";
+"config.language.help" = "更改应用显示语言（需要重启）";
+"config.language.system" = "系统默认";
+"config.language.restartTitle" = "语言已更改";
+"config.language.restartMessage" = "需要重启应用以应用语言更改。";
+"config.language.restartNow" = "立即重启";
+"config.language.restartLater" = "稍后";

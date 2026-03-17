@@ -1,0 +1,401 @@
+openapi: 3.0.3
+info:
+  title: fGoogleSheet REST API
+  description: |
+    fGoogleSheet Google Sheets 관리 REST API.
+    macOS 네이티브 앱(Swift/NWListener) 기반 HTTP 서버로,
+    데이터 업로드, 미답변 질문 조회, 앱 상태 모니터링 등의 기능을 제공합니다.
+    설정 변경은 보안상 REST API에서 제외됩니다.
+
+    **보안 정책**: API 서버는 기본적으로 비활성화되어 있습니다. 활성화 시
+    localhost(127.0.0.1)에만 바인딩됩니다. 설정 UI의 체크박스를 통해
+    외부 접속을 허용할 수 있으며, CIDR 범위(예: 192.168.0.0/24)로
+    IP 필터링을 제어합니다. 허용 CIDR 범위 밖의 요청은 403 Forbidden을 받습니다.
+  version: 1.0.0
+  contact:
+    name: fGoogleSheet
+    url: https://github.com/nowage/fGoogleSheet
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:3013
+    description: 로컬 개발 서버 (macOS 앱)
+
+paths:
+  /:
+    get:
+      summary: 서버 상태 확인 (Health Check)
+      description: |
+        서버가 정상적으로 실행 중인지 확인합니다.
+        현재 접근 모드(Access Mode)를 포함한 상태 정보를 반환합니다.
+      operationId: healthCheck
+      tags:
+        - 상태
+      responses:
+        '200':
+          description: 서버 정상 동작
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              example:
+                status: ok
+                app: fGoogleSheet
+                port: 3013
+                accessMode: API
+
+  /api/add-line:
+    post:
+      summary: Google Sheets에 데이터 추가
+      description: |
+        설정된 Google Sheets 문서에 Key/Value 쌍을 업로드합니다.
+        Key는 A열에, Value는 B열에 기록됩니다.
+
+        **앱 UI 동작**: REST 요청 시 앱 UI의 입력란에 데이터가 자동 반영되고,
+        업로드가 트리거되어 현재 행 번호가 자동 증가합니다.
+      operationId: addLine
+      tags:
+        - 시트
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddLineRequest'
+            examples:
+              withValue:
+                summary: Key/Value 쌍
+                value:
+                  key: "Swift란 무엇인가?"
+                  value: "Apple의 프로그래밍 언어입니다."
+              keyOnly:
+                summary: Key만 (답변 없음)
+                value:
+                  key: "SwiftUI란 무엇인가?"
+      responses:
+        '200':
+          description: 데이터 업로드 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddLineResponse'
+              example:
+                success: true
+                targetRow: 5
+                nextRow: 6
+                newQuestionCnt: 2
+                hasNewQuestions: true
+        '400':
+          description: 잘못된 요청 (key 누락 또는 JSON 파싱 실패)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "key 필드는 필수입니다"
+        '401':
+          description: 인증 실패 (OAuth 토큰 만료 또는 미설정)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "인증이 필요합니다"
+        '500':
+          description: 서버 내부 오류 (Google Sheets API 실패)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Google Sheets API 호출 실패"
+        '503':
+          description: 서비스 불가 (앱 미초기화)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "DataManager가 초기화되지 않았습니다"
+
+  /api/unanswered:
+    get:
+      summary: 미답변 질문 조회
+      description: |
+        A열과 B열을 스캔하여 A열에 내용이 있지만 B열이 비어있는 행(미답변 질문)을 찾습니다.
+        연속 10개 빈 행이 발견되면 스캔을 종료합니다.
+      operationId: findUnansweredQuestions
+      tags:
+        - 시트
+      parameters:
+        - name: startRow
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 2
+          description: 스캔 시작 행 번호 (기본값은 설정의 currentRow)
+      responses:
+        '200':
+          description: 미답변 질문 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnansweredResponse'
+              example:
+                count: 2
+                questions:
+                  - row: 5
+                    question: "Swift에서 async/await란?"
+                    cellA: "A5"
+                    cellB: "B5"
+                  - row: 8
+                    question: "SwiftUI의 @State란?"
+                    cellA: "A8"
+                    cellB: "B8"
+        '401':
+          description: 인증 실패
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 서버 내부 오류
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/status:
+    get:
+      summary: 앱 상태 조회
+      description: |
+        실행 상태, 접근 모드, 인증 상태 등 앱의 현재 상태를 반환합니다.
+      operationId: getStatus
+      tags:
+        - 상태
+      responses:
+        '200':
+          description: 앱 상태 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+              example:
+                executionState: idle
+                accessMode: API
+                currentRow: 5
+                sheetName: Sheet1
+                hasUnansweredQuestions: true
+                unansweredQuestionsCount: 2
+                isAuthenticated: true
+                restServerPort: 3013
+
+  /api/next-row:
+    get:
+      summary: 다음 빈 행 조회
+      description: |
+        Google Sheets 문서에서 다음 빈 행을 찾고,
+        스캔 중 발견된 미답변 질문 수를 함께 반환합니다.
+      operationId: findNextRow
+      tags:
+        - 시트
+      parameters:
+        - name: startRow
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 2
+          description: 스캔 시작 행 번호
+      responses:
+        '200':
+          description: 다음 빈 행 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NextRowResponse'
+              example:
+                nextRow: 15
+                newQuestionCnt: 3
+        '401':
+          description: 인증 실패
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 서버 내부 오류
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    AddLineRequest:
+      type: object
+      properties:
+        key:
+          type: string
+          description: A열에 입력할 텍스트 (질문/키)
+          example: "Swift란 무엇인가?"
+        value:
+          type: string
+          description: B열에 입력할 텍스트 (답변/값). 빈 문자열 허용
+          default: ""
+          example: "Apple의 프로그래밍 언어입니다."
+      required:
+        - key
+
+    AddLineResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: 업로드 성공 여부
+        targetRow:
+          type: integer
+          description: 데이터가 입력된 행 번호
+        nextRow:
+          type: integer
+          description: 다음 빈 행 번호
+        newQuestionCnt:
+          type: integer
+          description: 미답변 질문 수 (A열 있고 B열 비어있는 행)
+        hasNewQuestions:
+          type: boolean
+          description: 미답변 질문 존재 여부
+      required:
+        - success
+        - targetRow
+        - nextRow
+
+    UnansweredResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: 미답변 질문 수
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnansweredQuestion'
+      required:
+        - count
+        - questions
+
+    UnansweredQuestion:
+      type: object
+      properties:
+        row:
+          type: integer
+          description: 행 번호
+        question:
+          type: string
+          description: A열 내용 (질문)
+        cellA:
+          type: string
+          description: 셀 주소 (예: "A5")
+        cellB:
+          type: string
+          description: 셀 주소 (예: "B5")
+
+    StatusResponse:
+      type: object
+      properties:
+        executionState:
+          type: string
+          enum:
+            - idle
+            - saving
+            - executing
+            - completed
+            - failed
+            - loadingConfig
+            - needsRestart
+          description: 현재 실행 상태
+        accessMode:
+          type: string
+          enum:
+            - API
+            - AppsScript
+            - Playwright
+          description: 현재 Google Sheets 접근 방식
+        currentRow:
+          type: integer
+          description: 현재 데이터 입력 행 번호
+        sheetName:
+          type: string
+          description: 현재 시트 탭 이름
+        hasUnansweredQuestions:
+          type: boolean
+        unansweredQuestionsCount:
+          type: integer
+        isAuthenticated:
+          type: boolean
+          description: OAuth 인증 유효 여부
+        restServerPort:
+          type: integer
+      required:
+        - executionState
+        - accessMode
+
+    NextRowResponse:
+      type: object
+      properties:
+        nextRow:
+          type: integer
+          description: 다음 빈 행 번호
+        newQuestionCnt:
+          type: integer
+          description: 스캔 중 발견된 미답변 질문 수
+      required:
+        - nextRow
+        - newQuestionCnt
+
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        app:
+          type: string
+          example: fGoogleSheet
+        port:
+          type: integer
+          example: 3013
+        accessMode:
+          type: string
+          example: API
+      required:
+        - status
+        - app
+        - port
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: 에러 메시지
+      required:
+        - error
+
+  responses:
+    Forbidden:
+      description: 금지 - 클라이언트 IP가 허용된 CIDR 범위에 포함되지 않음
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: "접근 거부: IP가 허용된 CIDR 범위에 포함되지 않습니다"
+
+tags:
+  - name: 상태
+    description: 서버 및 앱 상태 확인
+  - name: 시트
+    description: Google Sheets 데이터 작업 (업로드, 조회, 스캔)

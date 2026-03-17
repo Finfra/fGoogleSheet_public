@@ -1,0 +1,161 @@
+/* Localizable.strings (en) - fGoogleSheet */
+/* English */
+
+/* === Common === */
+"common.confirm" = "OK";
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.close" = "Close";
+
+/* === Settings Tabs === */
+"config.tab.general" = "General";
+"config.tab.sheet" = "Sheet";
+"config.tab.auth" = "Auth";
+
+/* === ContentView === */
+"content.key.label" = "Key (Question):";
+"content.value.label" = "Value (Answer):";
+"content.button.clear" = "Clear (cmd+k)";
+"content.button.check" = "Verify Input (cmd+f)";
+"content.button.execute" = "Execute (cmd+r)";
+"content.button.settings" = "Settings";
+"content.alert.unanswered.title" = "❓ Unanswered Questions Found!";
+"content.alert.unanswered.found %lld" = "%lld unanswered question(s) found.";
+"content.alert.unanswered.none" = "No unanswered questions at this time.";
+"content.alert.keyEmpty.title" = "⚠️ Key field is empty!";
+"content.alert.keyEmpty.message" = "Please enter a question (Key).";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "Next Row:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "Edit Settings";
+"config.shortUrl.label" = "Short URL (Display Name)";
+"config.shortUrl.placeholder" = "e.g.) Lecture Notes, Q&A Sheet";
+"config.shortUrl.help" = "Enter a short name to display on screen";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "Enter the full Google Sheets URL";
+"config.currentRow.label" = "Current Row Number";
+"config.currentRow.placeholder" = "Row number (1-1000)";
+"config.currentRow.help" = "Set the next row number for input";
+"config.fontSize.label" = "Input Font Size";
+"config.fontSize.placeholder" = "Font size (12-128)";
+"config.fontSize.preview" = "Sample: ABC abc Text";
+"config.fontSize.help" = "Set the font size for input fields (default: 64pt)";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "Enables read/write without OAuth when configured (used first)";
+"config.appsScript.active" = "Apps Script mode active";
+"config.apiKey.label" = "Google Sheets API Key";
+"config.apiKey.placeholder" = "Enter API Key";
+"config.apiKey.help" = "Enter the API Key from Google Cloud Console";
+"config.sheetName.label" = "Sheet Tab Name";
+"config.sheetName.placeholder" = "Sheet tab name (default: Sheet1)";
+"config.sheetName.help" = "The tab name for data input in Google Sheets";
+"config.oauth.label" = "OAuth 2.0 Authentication (for writing)";
+"config.oauth.authenticating" = "Authenticating...";
+"config.oauth.login" = "Google Login";
+"config.oauth.authenticated" = "Authenticated";
+"config.oauth.logout" = "Logout";
+"config.oauth.logoutComplete" = "Logged out";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID (Desktop type)";
+"config.oauth.unavailable" = "Authentication service unavailable";
+"config.oauth.success" = "Authentication complete!";
+"config.oauth.failure %@" = "Authentication failed: %@";
+"config.hideApp.label" = "Hide App After Execution";
+"config.hideApp.toggle" = "Automatically hide app after execution";
+"config.hideApp.help" = "App will not be hidden if unanswered questions are found";
+"config.validation.invalidUrl" = "Invalid Google Sheets URL";
+"config.validation.invalidRow" = "Row number must be between 1-1000";
+"config.validation.invalidFontSize" = "Font size must be between 12-128pt";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js Environment Check Results";
+"nodeEnv.subtitle" = "The following issues must be resolved for the app to work properly.";
+"nodeEnv.copyAll" = "Copy All Commands";
+"nodeEnv.copyCommand" = "Copy Command";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js is not installed";
+"nodeCheck.noNode.desc" = "This app requires Node.js for Google Sheets integration. Please install Node.js.";
+"nodeCheck.oldVersion.title %@" = "Node.js version is too old (%@)";
+"nodeCheck.oldVersion.desc %lld %@" = "Minimum v%lld or higher is required. Currently %@ is installed.";
+"nodeCheck.noModules.title" = "npm packages are not installed";
+"nodeCheck.noModules.desc" = "Required packages for Node.js module execution (express, playwright, etc.) are not installed.";
+"nodeCheck.missingPkgs.title" = "Some npm packages are missing";
+"nodeCheck.missingPkgs.desc %@" = "Missing packages: %@";
+"nodeCheck.noPlaywright.title" = "Playwright browser (Chromium) is not installed";
+"nodeCheck.noPlaywright.desc" = "Chromium browser is required for Google Sheets automation. Please install it via Playwright.";
+"nodeCheck.noChromium.title" = "Playwright Chromium browser is not installed";
+"nodeCheck.noChromium.desc" = "Chromium is not found in the Playwright cache. Please install Chromium.";
+"nodeCheck.cantReadDir.title" = "Cannot read Playwright browser directory";
+"nodeCheck.cantReadDir.desc %@" = "Failed to access Playwright cache directory: %@";
+
+/* === DataManager (Status Messages) === */
+"status.initializing" = "🚀 Initializing... (Starting Playwright server)";
+"status.initComplete" = "✅ Initialization complete!";
+"status.initFailed" = "❌ Initialization failed: Playwright server start error";
+"status.loadingConfig" = "📋 Loading settings...";
+"status.saving" = "💾 Saving...";
+"status.executing" = "🚀 Writing to Google Sheets via Playwright...";
+"status.complete %lld" = "✅ Complete! (Row %lld)";
+"status.complete.simple" = "✅ Complete!";
+"status.unanswered %lld" = "❓ %lld unanswered question(s) found!";
+"status.needsRestart" = "🔄 Browser reconnection needed";
+"status.addLineFailed" = "❌ Failed: addLine command error - Check if Playwright server is running";
+"status.failed %@" = "❌ Failed: %@";
+"status.checkingQuestions" = "🔍 Checking for unanswered questions...";
+"status.noUnanswered" = "No unanswered questions found.";
+"status.foundUnanswered %lld" = "%lld unanswered question(s) found!";
+"status.nodeEnvIssues %lld %lld" = "⚠️ %lld Node.js environment issue(s) found (critical: %lld)";
+"status.restartingBrowser" = "🔄 Restarting browser...";
+"status.restartComplete" = "✅ Browser restart complete!";
+"status.restartFailed" = "❌ Browser restart failed";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "%lld unanswered question(s) found.\n\nQuestions:\n%@";
+"content.alert.unanswered.row %lld %@" = "• Row %lld: %@";
+
+/* === ConfigEditView (Additional) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "File save failed: %@";
+"error.fileRead %@" = "File read failed: %@";
+"error.scriptExecution %lld" = "Script execution failed (code: %lld)";
+"error.invalidInput %@" = "Input error: %@";
+"error.configValidation %@" = "Configuration error: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "No authentication. Please set an API Key or OAuth token.";
+"error.sheets.invalidUrl %@" = "Invalid URL: %@";
+"error.sheets.invalidResponse" = "Unable to process server response.";
+"error.sheets.httpError %lld" = "HTTP error (code: %lld)";
+"error.sheets.apiError %lld %@" = "Google Sheets API error (%lld): %@";
+"error.sheets.noSpreadsheetId" = "Cannot find Spreadsheet ID in Google Sheets URL.";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "OAuth Client ID is not configured. Please enter it in Settings.";
+"error.auth.noRefreshToken" = "Login required. Please sign in with Google first.";
+"error.auth.invalidAuthUrl" = "Failed to generate authentication URL.";
+"error.auth.tokenExchangeFailed" = "Token exchange failed. Please check Client ID/Secret.";
+"error.auth.timeout" = "Authentication timed out. Please try again.";
+"error.auth.serverStartFailed" = "Failed to start local authentication server.";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "Authentication Complete!";
+"auth.html.success.message" = "Close this window and return to fGoogleSheet app.";
+"auth.html.failure.title" = "Authentication Failed";
+"auth.html.failure.message" = "Please try again.";
+
+/* === Language Settings === */
+"config.language.label" = "Language";
+"config.language.help" = "Change app display language (restart required)";
+"config.language.system" = "System Default";
+"config.language.restartTitle" = "Language Changed";
+"config.language.restartMessage" = "The app needs to restart to apply the language change.";
+"config.language.restartNow" = "Restart Now";
+"config.language.restartLater" = "Later";

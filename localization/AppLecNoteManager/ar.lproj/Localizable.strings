@@ -1,0 +1,161 @@
+/* Localizable.strings (ar) - fGoogleSheet */
+/* العربية */
+
+/* === Common === */
+"common.confirm" = "موافق";
+"common.cancel" = "إلغاء";
+"common.save" = "حفظ";
+"common.close" = "إغلاق";
+
+/* === Settings Tabs === */
+"config.tab.general" = "عام";
+"config.tab.sheet" = "ورقة";
+"config.tab.auth" = "مصادقة";
+
+/* === ContentView === */
+"content.key.label" = "المفتاح (السؤال):";
+"content.value.label" = "القيمة (الإجابة):";
+"content.button.clear" = "مسح (cmd+k)";
+"content.button.check" = "التحقق من الإدخال (cmd+f)";
+"content.button.execute" = "تنفيذ (cmd+r)";
+"content.button.settings" = "الإعدادات";
+"content.alert.unanswered.title" = "❓ تم العثور على أسئلة بدون إجابة!";
+"content.alert.unanswered.found %lld" = "تم العثور على %lld سؤال(أسئلة) بدون إجابة.";
+"content.alert.unanswered.none" = "لا توجد أسئلة بدون إجابة حالياً.";
+"content.alert.keyEmpty.title" = "⚠️ حقل المفتاح فارغ!";
+"content.alert.keyEmpty.message" = "يرجى إدخال سؤال (المفتاح).";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "الصف التالي:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "تعديل الإعدادات";
+"config.shortUrl.label" = "رابط قصير (اسم العرض)";
+"config.shortUrl.placeholder" = "مثال) ملاحظات المحاضرة، ورقة الأسئلة والأجوبة";
+"config.shortUrl.help" = "أدخل اسماً قصيراً للعرض على الشاشة";
+"config.sheetsUrl.label" = "رابط Google Sheets";
+"config.sheetsUrl.help" = "أدخل الرابط الكامل لـ Google Sheets";
+"config.currentRow.label" = "رقم الصف الحالي";
+"config.currentRow.placeholder" = "رقم الصف (1-1000)";
+"config.currentRow.help" = "تعيين رقم الصف التالي للإدخال";
+"config.fontSize.label" = "حجم خط الإدخال";
+"config.fontSize.placeholder" = "حجم الخط (12-128)";
+"config.fontSize.preview" = "مثال: ABC abc نص";
+"config.fontSize.help" = "تعيين حجم الخط لحقول الإدخال (الافتراضي: 64pt)";
+"config.appsScript.label" = "رابط Apps Script Web App";
+"config.appsScript.help" = "يتيح القراءة/الكتابة بدون OAuth عند التكوين (يُستخدم أولاً)";
+"config.appsScript.active" = "وضع Apps Script نشط";
+"config.apiKey.label" = "مفتاح API لـ Google Sheets";
+"config.apiKey.placeholder" = "أدخل مفتاح API";
+"config.apiKey.help" = "أدخل مفتاح API من Google Cloud Console";
+"config.sheetName.label" = "اسم علامة تبويب الورقة";
+"config.sheetName.placeholder" = "اسم علامة التبويب (الافتراضي: Sheet1)";
+"config.sheetName.help" = "اسم علامة التبويب لإدخال البيانات في Google Sheets";
+"config.oauth.label" = "مصادقة OAuth 2.0 (للكتابة)";
+"config.oauth.authenticating" = "جارٍ المصادقة...";
+"config.oauth.login" = "تسجيل الدخول بـ Google";
+"config.oauth.authenticated" = "تم المصادقة";
+"config.oauth.logout" = "تسجيل الخروج";
+"config.oauth.logoutComplete" = "تم تسجيل الخروج";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID (نوع سطح المكتب)";
+"config.oauth.unavailable" = "خدمة المصادقة غير متوفرة";
+"config.oauth.success" = "اكتملت المصادقة!";
+"config.oauth.failure %@" = "فشلت المصادقة: %@";
+"config.hideApp.label" = "إخفاء التطبيق بعد التنفيذ";
+"config.hideApp.toggle" = "إخفاء التطبيق تلقائياً بعد التنفيذ";
+"config.hideApp.help" = "لن يتم إخفاء التطبيق إذا تم العثور على أسئلة بدون إجابة";
+"config.validation.invalidUrl" = "رابط Google Sheets غير صالح";
+"config.validation.invalidRow" = "يجب أن يكون رقم الصف بين 1-1000";
+"config.validation.invalidFontSize" = "يجب أن يكون حجم الخط بين 12-128pt";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "نتائج فحص بيئة Node.js";
+"nodeEnv.subtitle" = "يجب حل المشكلات التالية لكي يعمل التطبيق بشكل صحيح.";
+"nodeEnv.copyAll" = "نسخ جميع الأوامر";
+"nodeEnv.copyCommand" = "نسخ الأمر";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js غير مثبت";
+"nodeCheck.noNode.desc" = "يتطلب هذا التطبيق Node.js للتكامل مع Google Sheets. يرجى تثبيت Node.js.";
+"nodeCheck.oldVersion.title %@" = "إصدار Node.js قديم جداً (%@)";
+"nodeCheck.oldVersion.desc %lld %@" = "الحد الأدنى المطلوب هو v%lld أو أعلى. الإصدار المثبت حالياً هو %@.";
+"nodeCheck.noModules.title" = "حزم npm غير مثبتة";
+"nodeCheck.noModules.desc" = "الحزم المطلوبة لتشغيل وحدة Node.js (express، playwright، إلخ) غير مثبتة.";
+"nodeCheck.missingPkgs.title" = "بعض حزم npm مفقودة";
+"nodeCheck.missingPkgs.desc %@" = "الحزم المفقودة: %@";
+"nodeCheck.noPlaywright.title" = "متصفح Playwright (Chromium) غير مثبت";
+"nodeCheck.noPlaywright.desc" = "متصفح Chromium مطلوب لأتمتة Google Sheets. يرجى تثبيته عبر Playwright.";
+"nodeCheck.noChromium.title" = "متصفح Playwright Chromium غير مثبت";
+"nodeCheck.noChromium.desc" = "لم يتم العثور على Chromium في ذاكرة التخزين المؤقت لـ Playwright. يرجى تثبيت Chromium.";
+"nodeCheck.cantReadDir.title" = "لا يمكن قراءة دليل متصفح Playwright";
+"nodeCheck.cantReadDir.desc %@" = "فشل الوصول إلى دليل ذاكرة التخزين المؤقت لـ Playwright: %@";
+
+/* === DataManager === */
+"status.initializing" = "🚀 جارٍ التهيئة... (بدء خادم Playwright)";
+"status.initComplete" = "✅ اكتملت التهيئة!";
+"status.initFailed" = "❌ فشلت التهيئة: خطأ في بدء خادم Playwright";
+"status.loadingConfig" = "📋 جارٍ تحميل الإعدادات...";
+"status.saving" = "💾 جارٍ الحفظ...";
+"status.executing" = "🚀 الكتابة إلى Google Sheets عبر Playwright...";
+"status.complete %lld" = "✅ اكتمل! (الصف %lld)";
+"status.complete.simple" = "✅ اكتمل!";
+"status.unanswered %lld" = "❓ تم العثور على %lld سؤال(أسئلة) بدون إجابة!";
+"status.needsRestart" = "🔄 يلزم إعادة اتصال المتصفح";
+"status.addLineFailed" = "❌ فشل: خطأ في أمر addLine - تحقق مما إذا كان خادم Playwright قيد التشغيل";
+"status.failed %@" = "❌ فشل: %@";
+"status.checkingQuestions" = "🔍 جارٍ التحقق من الأسئلة بدون إجابة...";
+"status.noUnanswered" = "لم يتم العثور على أسئلة بدون إجابة.";
+"status.foundUnanswered %lld" = "تم العثور على %lld سؤال(أسئلة) بدون إجابة!";
+"status.nodeEnvIssues %lld %lld" = "⚠️ تم العثور على %lld مشكلة(مشكلات) في بيئة Node.js (حرجة: %lld)";
+"status.restartingBrowser" = "🔄 جارٍ إعادة تشغيل المتصفح...";
+"status.restartComplete" = "✅ اكتملت إعادة تشغيل المتصفح!";
+"status.restartFailed" = "❌ فشلت إعادة تشغيل المتصفح";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "تم العثور على %lld سؤال(أسئلة) بدون إجابة.\n\nالأسئلة:\n%@";
+"content.alert.unanswered.row %lld %@" = "• الصف %lld: %@";
+
+/* === ConfigEditView (إضافي) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "فشل حفظ الملف: %@";
+"error.fileRead %@" = "فشل قراءة الملف: %@";
+"error.scriptExecution %lld" = "فشل تنفيذ البرنامج النصي (الرمز: %lld)";
+"error.invalidInput %@" = "خطأ في الإدخال: %@";
+"error.configValidation %@" = "خطأ في الإعدادات: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "لا توجد مصادقة. يرجى تعيين مفتاح API أو رمز OAuth.";
+"error.sheets.invalidUrl %@" = "رابط غير صالح: %@";
+"error.sheets.invalidResponse" = "لا يمكن معالجة استجابة الخادم.";
+"error.sheets.httpError %lld" = "خطأ HTTP (الرمز: %lld)";
+"error.sheets.apiError %lld %@" = "خطأ في Google Sheets API (%lld): %@";
+"error.sheets.noSpreadsheetId" = "لا يمكن العثور على معرف جدول البيانات في رابط Google Sheets.";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "لم يتم تعيين OAuth Client ID. يرجى إدخاله في الإعدادات.";
+"error.auth.noRefreshToken" = "يلزم تسجيل الدخول. يرجى تسجيل الدخول بـ Google أولاً.";
+"error.auth.invalidAuthUrl" = "فشل إنشاء رابط المصادقة.";
+"error.auth.tokenExchangeFailed" = "فشل تبادل الرموز. يرجى التحقق من Client ID/Secret.";
+"error.auth.timeout" = "انتهت مهلة المصادقة. يرجى المحاولة مرة أخرى.";
+"error.auth.serverStartFailed" = "فشل بدء خادم المصادقة المحلي.";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "اكتملت المصادقة!";
+"auth.html.success.message" = "أغلق هذه النافذة وارجع إلى تطبيق fGoogleSheet.";
+"auth.html.failure.title" = "فشلت المصادقة";
+"auth.html.failure.message" = "يرجى المحاولة مرة أخرى.";
+
+/* === Language Settings === */
+"config.language.label" = "اللغة";
+"config.language.help" = "تغيير لغة عرض التطبيق (يتطلب إعادة التشغيل)";
+"config.language.system" = "الافتراضي للنظام";
+"config.language.restartTitle" = "تم تغيير اللغة";
+"config.language.restartMessage" = "يجب إعادة تشغيل التطبيق لتطبيق تغيير اللغة.";
+"config.language.restartNow" = "إعادة التشغيل الآن";
+"config.language.restartLater" = "لاحقاً";

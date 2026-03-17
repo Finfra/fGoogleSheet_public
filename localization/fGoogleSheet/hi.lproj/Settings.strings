@@ -1,0 +1,32 @@
+/* Settings.strings (hi) */
+/* Translated for fGoogleSheet */
+
+"settings.advanced.button.import" = "आयात";
+"settings.advanced.button.reset_execute" = "रीसेट";
+"settings.advanced.danger.warning" = "चेतावनी: सारा डेटा हटा दिया जाएगा।";
+"settings.advanced.input.no_change" = "कोई बदलाव नहीं";
+"settings.advanced.section.debug" = "डिबग";
+"settings.clipboard.button.clear_all" = "सब साफ़ करें";
+"settings.clipboard.button.delete_all" = "सभी हटाएं";
+"settings.clipboard.desc.clear_data" = "सांख्यिकी और इतिहास सहित सभी एकत्र किए गए डेटा को स्थायी रूप से हटाएं।";
+"settings.clipboard.label.clear_data" = "इतिहास और आँकड़े साफ़ करें";
+"settings.clipboard.label.pause" = "संग्रह रोकें";
+"settings.clipboard.label.register_snippet" = "स्निपेट के रूप में पंजीकृत करें";
+"settings.clipboard.label.toggle_preview" = "पूर्वावलोकन टॉगल करें";
+"settings.clipboard.section.viewer" = "इतिहास दर्शक";
+"settings.folder.button.add" = "जोड़ें";
+"settings.folder.button.delete" = "हटाएं";
+"settings.folder.help.delete" = "चयनित फ़ोल्डर सेटिंग्स हटाएं";
+"settings.folder.picker.no_folder" = "कोई फ़ोल्डर नहीं";
+"settings.folder.placeholder.file_name" = "फ़ाइल नाम दर्ज करें";
+"settings.folder.placeholder.folder_name" = "फ़ोल्डर का नाम दर्ज करें या चुनें";
+"settings.general.backspace_adj" = "बैकस्पेस समायोजन:";
+"settings.general.button.apply" = "लागू करें";
+"settings.general.button.cancel" = "रद्द करें";
+"settings.general.button.change" = "बदलें";
+"settings.general.language" = "भाषा";
+"settings.general.language.restart_required" = "परिवर्तनों को लागू करने के लिए पुनरारंभ आवश्यक है।";
+"settings.general.section.basic" = "बुनियादी सेटिंग्स";
+"settings.general.snippet_folder" = "स्निपेट फ़ोल्डर:";
+"settings.general.title" = "सामान्य सेटिंग्स";
+"settings.general.toggle.hide_menubar" = "मेनू बार से छिपाएं";

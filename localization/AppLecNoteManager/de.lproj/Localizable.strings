@@ -1,0 +1,161 @@
+/* Localizable.strings (de) - fGoogleSheet */
+/* Deutsch */
+
+/* === Common === */
+"common.confirm" = "OK";
+"common.cancel" = "Abbrechen";
+"common.save" = "Speichern";
+"common.close" = "Schließen";
+
+/* === Settings Tabs === */
+"config.tab.general" = "Allgemein";
+"config.tab.sheet" = "Tabelle";
+"config.tab.auth" = "Auth";
+
+/* === ContentView === */
+"content.key.label" = "Schlüssel (Frage):";
+"content.value.label" = "Wert (Antwort):";
+"content.button.clear" = "Löschen (cmd+k)";
+"content.button.check" = "Eingabe prüfen (cmd+f)";
+"content.button.execute" = "Ausführen (cmd+r)";
+"content.button.settings" = "Einstellungen";
+"content.alert.unanswered.title" = "❓ Unbeantwortete Fragen gefunden!";
+"content.alert.unanswered.found %lld" = "%lld unbeantwortete Frage(n) gefunden.";
+"content.alert.unanswered.none" = "Derzeit keine unbeantworteten Fragen.";
+"content.alert.keyEmpty.title" = "⚠️ Schlüsselfeld ist leer!";
+"content.alert.keyEmpty.message" = "Bitte geben Sie eine Frage (Schlüssel) ein.";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "Nächste Zeile:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "Einstellungen bearbeiten";
+"config.shortUrl.label" = "Kurz-URL (Anzeigename)";
+"config.shortUrl.placeholder" = "z.B.) Vorlesungsnotizen, Q&A-Tabelle";
+"config.shortUrl.help" = "Geben Sie einen kurzen Namen für die Anzeige ein";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "Geben Sie die vollständige Google Sheets URL ein";
+"config.currentRow.label" = "Aktuelle Zeilennummer";
+"config.currentRow.placeholder" = "Zeilennummer (1-1000)";
+"config.currentRow.help" = "Legen Sie die nächste Zeilennummer für die Eingabe fest";
+"config.fontSize.label" = "Eingabe-Schriftgröße";
+"config.fontSize.placeholder" = "Schriftgröße (12-128)";
+"config.fontSize.preview" = "Beispiel: ABC abc Text";
+"config.fontSize.help" = "Schriftgröße für Eingabefelder festlegen (Standard: 64pt)";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "Ermöglicht Lesen/Schreiben ohne OAuth wenn konfiguriert (wird bevorzugt verwendet)";
+"config.appsScript.active" = "Apps Script-Modus aktiv";
+"config.apiKey.label" = "Google Sheets API-Schlüssel";
+"config.apiKey.placeholder" = "API-Schlüssel eingeben";
+"config.apiKey.help" = "Geben Sie den API-Schlüssel aus der Google Cloud Console ein";
+"config.sheetName.label" = "Tabellenblatt-Name";
+"config.sheetName.placeholder" = "Tabellenblatt-Name (Standard: Sheet1)";
+"config.sheetName.help" = "Der Tabellenblatt-Name für die Dateneingabe in Google Sheets";
+"config.oauth.label" = "OAuth 2.0 Authentifizierung (zum Schreiben)";
+"config.oauth.authenticating" = "Authentifizierung...";
+"config.oauth.login" = "Google-Anmeldung";
+"config.oauth.authenticated" = "Authentifiziert";
+"config.oauth.logout" = "Abmelden";
+"config.oauth.logoutComplete" = "Abgemeldet";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID (Desktop-Typ)";
+"config.oauth.unavailable" = "Authentifizierungsdienst nicht verfügbar";
+"config.oauth.success" = "Authentifizierung erfolgreich!";
+"config.oauth.failure %@" = "Authentifizierung fehlgeschlagen: %@";
+"config.hideApp.label" = "App nach Ausführung ausblenden";
+"config.hideApp.toggle" = "App nach Ausführung automatisch ausblenden";
+"config.hideApp.help" = "App wird nicht ausgeblendet, wenn unbeantwortete Fragen gefunden werden";
+"config.validation.invalidUrl" = "Ungültige Google Sheets URL";
+"config.validation.invalidRow" = "Zeilennummer muss zwischen 1-1000 liegen";
+"config.validation.invalidFontSize" = "Schriftgröße muss zwischen 12-128pt liegen";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js Umgebungsprüfung";
+"nodeEnv.subtitle" = "Die folgenden Probleme müssen behoben werden, damit die App ordnungsgemäß funktioniert.";
+"nodeEnv.copyAll" = "Alle Befehle kopieren";
+"nodeEnv.copyCommand" = "Befehl kopieren";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js ist nicht installiert";
+"nodeCheck.noNode.desc" = "Diese App benötigt Node.js für die Google Sheets-Integration. Bitte installieren Sie Node.js.";
+"nodeCheck.oldVersion.title %@" = "Node.js-Version ist zu alt (%@)";
+"nodeCheck.oldVersion.desc %lld %@" = "Mindestens v%lld oder höher ist erforderlich. Derzeit ist %@ installiert.";
+"nodeCheck.noModules.title" = "npm-Pakete sind nicht installiert";
+"nodeCheck.noModules.desc" = "Für die Node.js-Modulausführung erforderliche Pakete (express, playwright usw.) sind nicht installiert.";
+"nodeCheck.missingPkgs.title" = "Einige npm-Pakete fehlen";
+"nodeCheck.missingPkgs.desc %@" = "Fehlende Pakete: %@";
+"nodeCheck.noPlaywright.title" = "Playwright-Browser (Chromium) ist nicht installiert";
+"nodeCheck.noPlaywright.desc" = "Der Chromium-Browser wird für die Google Sheets-Automatisierung benötigt. Bitte installieren Sie ihn über Playwright.";
+"nodeCheck.noChromium.title" = "Playwright Chromium-Browser ist nicht installiert";
+"nodeCheck.noChromium.desc" = "Chromium wurde im Playwright-Cache nicht gefunden. Bitte installieren Sie Chromium.";
+"nodeCheck.cantReadDir.title" = "Playwright-Browser-Verzeichnis kann nicht gelesen werden";
+"nodeCheck.cantReadDir.desc %@" = "Zugriff auf Playwright-Cache-Verzeichnis fehlgeschlagen: %@";
+
+/* === DataManager === */
+"status.initializing" = "🚀 Initialisierung... (Playwright-Server wird gestartet)";
+"status.initComplete" = "✅ Initialisierung abgeschlossen!";
+"status.initFailed" = "❌ Initialisierung fehlgeschlagen: Playwright-Server Startfehler";
+"status.loadingConfig" = "📋 Einstellungen werden geladen...";
+"status.saving" = "💾 Wird gespeichert...";
+"status.executing" = "🚀 Schreibe in Google Sheets über Playwright...";
+"status.complete %lld" = "✅ Fertig! (Zeile %lld)";
+"status.complete.simple" = "✅ Fertig!";
+"status.unanswered %lld" = "❓ %lld unbeantwortete Frage(n) gefunden!";
+"status.needsRestart" = "🔄 Browser-Neuverbindung erforderlich";
+"status.addLineFailed" = "❌ Fehlgeschlagen: addLine-Befehlsfehler - Prüfen Sie ob der Playwright-Server läuft";
+"status.failed %@" = "❌ Fehlgeschlagen: %@";
+"status.checkingQuestions" = "🔍 Prüfe unbeantwortete Fragen...";
+"status.noUnanswered" = "Keine unbeantworteten Fragen gefunden.";
+"status.foundUnanswered %lld" = "%lld unbeantwortete Frage(n) gefunden!";
+"status.nodeEnvIssues %lld %lld" = "⚠️ %lld Node.js-Umgebungsproblem(e) gefunden (kritisch: %lld)";
+"status.restartingBrowser" = "🔄 Browser wird neu gestartet...";
+"status.restartComplete" = "✅ Browser-Neustart abgeschlossen!";
+"status.restartFailed" = "❌ Browser-Neustart fehlgeschlagen";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "%lld unbeantwortete Frage(n) gefunden.\n\nFragen:\n%@";
+"content.alert.unanswered.row %lld %@" = "• Zeile %lld: %@";
+
+/* === ConfigEditView (Zusätzlich) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "Datei speichern fehlgeschlagen: %@";
+"error.fileRead %@" = "Datei lesen fehlgeschlagen: %@";
+"error.scriptExecution %lld" = "Skriptausführung fehlgeschlagen (Code: %lld)";
+"error.invalidInput %@" = "Eingabefehler: %@";
+"error.configValidation %@" = "Konfigurationsfehler: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "Keine Authentifizierung. Bitte API-Schlüssel oder OAuth-Token konfigurieren.";
+"error.sheets.invalidUrl %@" = "Ungültige URL: %@";
+"error.sheets.invalidResponse" = "Serverantwort kann nicht verarbeitet werden.";
+"error.sheets.httpError %lld" = "HTTP-Fehler (Code: %lld)";
+"error.sheets.apiError %lld %@" = "Google Sheets API-Fehler (%lld): %@";
+"error.sheets.noSpreadsheetId" = "Spreadsheet-ID in der Google Sheets URL nicht gefunden.";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "OAuth Client ID nicht konfiguriert. Bitte in den Einstellungen eingeben.";
+"error.auth.noRefreshToken" = "Anmeldung erforderlich. Bitte zuerst mit Google anmelden.";
+"error.auth.invalidAuthUrl" = "Authentifizierungs-URL konnte nicht erstellt werden.";
+"error.auth.tokenExchangeFailed" = "Token-Austausch fehlgeschlagen. Bitte Client ID/Secret überprüfen.";
+"error.auth.timeout" = "Authentifizierung abgelaufen. Bitte erneut versuchen.";
+"error.auth.serverStartFailed" = "Lokaler Authentifizierungsserver konnte nicht gestartet werden.";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "Authentifizierung abgeschlossen!";
+"auth.html.success.message" = "Schließen Sie dieses Fenster und kehren Sie zur fGoogleSheet-App zurück.";
+"auth.html.failure.title" = "Authentifizierung fehlgeschlagen";
+"auth.html.failure.message" = "Bitte versuchen Sie es erneut.";
+
+/* === Language Settings === */
+"config.language.label" = "Sprache";
+"config.language.help" = "App-Anzeigesprache ändern (Neustart erforderlich)";
+"config.language.system" = "Systemstandard";
+"config.language.restartTitle" = "Sprache geändert";
+"config.language.restartMessage" = "Die App muss neu gestartet werden, um die Sprachänderung anzuwenden.";
+"config.language.restartNow" = "Jetzt neu starten";
+"config.language.restartLater" = "Später";

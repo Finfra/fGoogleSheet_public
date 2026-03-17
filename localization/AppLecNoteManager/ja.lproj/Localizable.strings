@@ -1,0 +1,161 @@
+/* Localizable.strings (ja) - fGoogleSheet */
+/* 日本語 */
+
+/* === Common === */
+"common.confirm" = "OK";
+"common.cancel" = "キャンセル";
+"common.save" = "保存";
+"common.close" = "閉じる";
+
+/* === Settings Tabs === */
+"config.tab.general" = "一般";
+"config.tab.sheet" = "シート";
+"config.tab.auth" = "認証";
+
+/* === ContentView === */
+"content.key.label" = "Key（質問）:";
+"content.value.label" = "Value（回答）:";
+"content.button.clear" = "クリア (cmd+k)";
+"content.button.check" = "手動入力確認 (cmd+f)";
+"content.button.execute" = "実行 (cmd+r)";
+"content.button.settings" = "設定";
+"content.alert.unanswered.title" = "❓ 未回答の質問が見つかりました！";
+"content.alert.unanswered.found %lld" = "未回答の質問が%lld件あります。";
+"content.alert.unanswered.none" = "現在未回答の質問はありません。";
+"content.alert.keyEmpty.title" = "⚠️ Keyフィールドが空です！";
+"content.alert.keyEmpty.message" = "質問（Key）を入力してください。";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "Next Row:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "設定編集";
+"config.shortUrl.label" = "Short URL（表示名）";
+"config.shortUrl.placeholder" = "例）講義ノート、Q&Aシート";
+"config.shortUrl.help" = "画面に表示する短い名前を入力してください";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "Google SheetsのフルURLを入力してください";
+"config.currentRow.label" = "現在の行番号";
+"config.currentRow.placeholder" = "行番号 (1-1000)";
+"config.currentRow.help" = "次に入力する行番号を設定してください";
+"config.fontSize.label" = "入力フォントサイズ";
+"config.fontSize.placeholder" = "フォントサイズ (12-128)";
+"config.fontSize.preview" = "サンプル: ABC abc テキスト";
+"config.fontSize.help" = "入力フィールドのフォントサイズを設定してください（デフォルト: 64pt）";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "設定するとOAuthなしで読み書き可能（優先使用）";
+"config.appsScript.active" = "Apps Scriptモード有効";
+"config.apiKey.label" = "Google Sheets API Key";
+"config.apiKey.placeholder" = "API Key入力";
+"config.apiKey.help" = "Google Cloud Consoleで発行したAPI Keyを入力してください";
+"config.sheetName.label" = "シートタブ名";
+"config.sheetName.placeholder" = "シートタブ名（デフォルト: Sheet1）";
+"config.sheetName.help" = "Google Sheetsでデータを入力するタブ名";
+"config.oauth.label" = "OAuth 2.0 認証（書き込み用）";
+"config.oauth.authenticating" = "認証中...";
+"config.oauth.login" = "Googleログイン";
+"config.oauth.authenticated" = "認証済み";
+"config.oauth.logout" = "ログアウト";
+"config.oauth.logoutComplete" = "ログアウト完了";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID（デスクトップ種類）";
+"config.oauth.unavailable" = "認証サービスが利用できません";
+"config.oauth.success" = "認証完了！";
+"config.oauth.failure %@" = "認証失敗: %@";
+"config.hideApp.label" = "実行後にアプリを非表示";
+"config.hideApp.toggle" = "実行完了後に自動的にアプリを非表示にする";
+"config.hideApp.help" = "未回答の質問が見つかった場合はアプリを非表示にしません";
+"config.validation.invalidUrl" = "有効なGoogle Sheets URLではありません";
+"config.validation.invalidRow" = "行番号は1-1000の範囲である必要があります";
+"config.validation.invalidFontSize" = "フォントサイズは12-128ptの範囲である必要があります";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js 環境チェック結果";
+"nodeEnv.subtitle" = "アプリが正常に動作するには、以下の問題を解決する必要があります。";
+"nodeEnv.copyAll" = "全コマンドをコピー";
+"nodeEnv.copyCommand" = "コマンドをコピー";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.jsがインストールされていません";
+"nodeCheck.noNode.desc" = "このアプリはGoogle Sheets連携のためにNode.jsが必要です。Node.jsをインストールしてください。";
+"nodeCheck.oldVersion.title %@" = "Node.jsのバージョンが古すぎます（%@）";
+"nodeCheck.oldVersion.desc %lld %@" = "最低v%lld以上が必要です。現在%@がインストールされています。";
+"nodeCheck.noModules.title" = "npmパッケージがインストールされていません";
+"nodeCheck.noModules.desc" = "Node.jsモジュール実行に必要なパッケージ（express、playwrightなど）がインストールされていません。";
+"nodeCheck.missingPkgs.title" = "一部のnpmパッケージが不足しています";
+"nodeCheck.missingPkgs.desc %@" = "不足パッケージ: %@";
+"nodeCheck.noPlaywright.title" = "Playwrightブラウザ（Chromium）がインストールされていません";
+"nodeCheck.noPlaywright.desc" = "Google Sheets自動入力のためにChromiumブラウザが必要です。Playwrightでインストールしてください。";
+"nodeCheck.noChromium.title" = "Playwright Chromiumブラウザがインストールされていません";
+"nodeCheck.noChromium.desc" = "PlaywrightキャッシュにChromiumがありません。Chromiumをインストールしてください。";
+"nodeCheck.cantReadDir.title" = "Playwrightブラウザディレクトリを読み取れません";
+"nodeCheck.cantReadDir.desc %@" = "Playwrightキャッシュディレクトリへのアクセスに失敗しました: %@";
+
+/* === DataManager === */
+"status.initializing" = "🚀 初期化中...（Playwrightサーバー起動）";
+"status.initComplete" = "✅ 初期化完了！";
+"status.initFailed" = "❌ 初期化失敗: Playwrightサーバー起動エラー";
+"status.loadingConfig" = "📋 設定読み込み中...";
+"status.saving" = "💾 保存中...";
+"status.executing" = "🚀 PlaywrightでGoogle Sheetsに入力中...";
+"status.complete %lld" = "✅ 完了！（%lld行）";
+"status.complete.simple" = "✅ 完了！";
+"status.unanswered %lld" = "❓ 未回答の質問が%lld件見つかりました！";
+"status.needsRestart" = "🔄 ブラウザ再接続が必要";
+"status.addLineFailed" = "❌ 失敗: addLineコマンドエラー - Playwrightサーバーが実行中か確認してください";
+"status.failed %@" = "❌ 失敗: %@";
+"status.checkingQuestions" = "🔍 未回答の質問を確認中...";
+"status.noUnanswered" = "未回答の質問はありません。";
+"status.foundUnanswered %lld" = "未回答の質問が%lld件見つかりました！";
+"status.nodeEnvIssues %lld %lld" = "⚠️ Node.js環境問題%lld件発見（重大: %lld件）";
+"status.restartingBrowser" = "🔄 ブラウザ再起動中...";
+"status.restartComplete" = "✅ ブラウザ再起動完了！";
+"status.restartFailed" = "❌ ブラウザ再起動失敗";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "未回答の質問が%lld件あります。\n\n質問:\n%@";
+"content.alert.unanswered.row %lld %@" = "• %lld行: %@";
+
+/* === ConfigEditView (追加) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "ファイル保存失敗: %@";
+"error.fileRead %@" = "ファイル読み取り失敗: %@";
+"error.scriptExecution %lld" = "スクリプト実行失敗（コード: %lld）";
+"error.invalidInput %@" = "入力エラー: %@";
+"error.configValidation %@" = "設定エラー: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "認証情報がありません。API KeyまたはOAuthトークンを設定してください。";
+"error.sheets.invalidUrl %@" = "無効なURL: %@";
+"error.sheets.invalidResponse" = "サーバーの応答を処理できません。";
+"error.sheets.httpError %lld" = "HTTPエラー（コード: %lld）";
+"error.sheets.apiError %lld %@" = "Google Sheets APIエラー（%lld）: %@";
+"error.sheets.noSpreadsheetId" = "Google Sheets URLからSpreadsheet IDが見つかりません。";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "OAuth Client IDが設定されていません。設定で入力してください。";
+"error.auth.noRefreshToken" = "ログインが必要です。先にGoogleログインを行ってください。";
+"error.auth.invalidAuthUrl" = "認証URL生成に失敗しました。";
+"error.auth.tokenExchangeFailed" = "トークン交換に失敗しました。Client ID/Secretを確認してください。";
+"error.auth.timeout" = "認証がタイムアウトしました。もう一度お試しください。";
+"error.auth.serverStartFailed" = "ローカル認証サーバーの起動に失敗しました。";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "認証完了！";
+"auth.html.success.message" = "このウィンドウを閉じてfGoogleSheetアプリに戻ってください。";
+"auth.html.failure.title" = "認証失敗";
+"auth.html.failure.message" = "もう一度お試しください。";
+
+/* === Language Settings === */
+"config.language.label" = "言語";
+"config.language.help" = "アプリの表示言語を変更します（再起動が必要）";
+"config.language.system" = "システムデフォルト";
+"config.language.restartTitle" = "言語が変更されました";
+"config.language.restartMessage" = "言語変更を適用するにはアプリの再起動が必要です。";
+"config.language.restartNow" = "今すぐ再起動";
+"config.language.restartLater" = "後で";

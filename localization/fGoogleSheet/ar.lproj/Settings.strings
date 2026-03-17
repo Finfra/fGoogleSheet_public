@@ -1,0 +1,32 @@
+/* Settings.strings (ar) */
+/* Translated for fGoogleSheet */
+
+"settings.advanced.button.import" = "استيراد";
+"settings.advanced.button.reset_execute" = "إعادة تعيين";
+"settings.advanced.danger.warning" = "تحذير: سيتم حذف جميع البيانات.";
+"settings.advanced.input.no_change" = "لا تغيير";
+"settings.advanced.section.debug" = "تصحيح";
+"settings.clipboard.button.clear_all" = "مسح الكل";
+"settings.clipboard.button.delete_all" = "حذف الكل";
+"settings.clipboard.desc.clear_data" = "حذف جميع البيانات المجمعة بما في ذلك الإحصائيات والسجل بشكل دائم.";
+"settings.clipboard.label.clear_data" = "مسح السجل والإحصائيات";
+"settings.clipboard.label.pause" = "إيقاف المجموعة مؤقتًا";
+"settings.clipboard.label.register_snippet" = "تسجيل كمقتطف";
+"settings.clipboard.label.toggle_preview" = "تبديل المعاينة";
+"settings.clipboard.section.viewer" = "عارض السجل";
+"settings.folder.button.add" = "إضافة";
+"settings.folder.button.delete" = "حذف";
+"settings.folder.help.delete" = "حذف إعدادات المجلد المحدد";
+"settings.folder.picker.no_folder" = "لا يوجد مجلد";
+"settings.folder.placeholder.file_name" = "أدخل اسم الملف";
+"settings.folder.placeholder.folder_name" = "أدخل أو اختر اسم المجلد";
+"settings.general.backspace_adj" = "تعديل المسافة للخلف:";
+"settings.general.button.apply" = "تطبيق";
+"settings.general.button.cancel" = "إلغاء";
+"settings.general.button.change" = "تغيير";
+"settings.general.language" = "اللغة";
+"settings.general.language.restart_required" = "إعادة التشغيل مطلوبة لتطبيق التغييرات.";
+"settings.general.section.basic" = "الإعدادات الأساسية";
+"settings.general.snippet_folder" = "مجلد المقتطفات:";
+"settings.general.title" = "إعدادات عامة";
+"settings.general.toggle.hide_menubar" = "إخفاء من شريط القوائم";

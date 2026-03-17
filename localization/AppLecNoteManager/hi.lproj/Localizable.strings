@@ -1,0 +1,161 @@
+/* Localizable.strings (hi) - fGoogleSheet */
+/* हिन्दी */
+
+/* === Common === */
+"common.confirm" = "ठीक है";
+"common.cancel" = "रद्द करें";
+"common.save" = "सहेजें";
+"common.close" = "बंद करें";
+
+/* === Settings Tabs === */
+"config.tab.general" = "सामान्य";
+"config.tab.sheet" = "शीट";
+"config.tab.auth" = "प्रमाणीकरण";
+
+/* === ContentView === */
+"content.key.label" = "कुंजी (प्रश्न):";
+"content.value.label" = "मान (उत्तर):";
+"content.button.clear" = "साफ़ करें (cmd+k)";
+"content.button.check" = "इनपुट सत्यापित करें (cmd+f)";
+"content.button.execute" = "चलाएँ (cmd+r)";
+"content.button.settings" = "सेटिंग्स";
+"content.alert.unanswered.title" = "❓ अनुत्तरित प्रश्न मिले!";
+"content.alert.unanswered.found %lld" = "%lld अनुत्तरित प्रश्न मिले।";
+"content.alert.unanswered.none" = "इस समय कोई अनुत्तरित प्रश्न नहीं हैं।";
+"content.alert.keyEmpty.title" = "⚠️ कुंजी फ़ील्ड खाली है!";
+"content.alert.keyEmpty.message" = "कृपया एक प्रश्न (कुंजी) दर्ज करें।";
+
+/* === ConfigDisplayView === */
+"config.display.defaultUrl" = "Google Sheets";
+"config.display.nextRow" = "अगली पंक्ति:";
+
+/* === ConfigEditView === */
+"config.edit.title" = "सेटिंग्स संपादित करें";
+"config.shortUrl.label" = "शॉर्ट URL (प्रदर्शन नाम)";
+"config.shortUrl.placeholder" = "उदा.) व्याख्यान नोट्स, प्रश्नोत्तर शीट";
+"config.shortUrl.help" = "स्क्रीन पर दिखाने के लिए एक छोटा नाम दर्ज करें";
+"config.sheetsUrl.label" = "Google Sheets URL";
+"config.sheetsUrl.help" = "पूर्ण Google Sheets URL दर्ज करें";
+"config.currentRow.label" = "वर्तमान पंक्ति संख्या";
+"config.currentRow.placeholder" = "पंक्ति संख्या (1-1000)";
+"config.currentRow.help" = "इनपुट के लिए अगली पंक्ति संख्या सेट करें";
+"config.fontSize.label" = "इनपुट फ़ॉन्ट आकार";
+"config.fontSize.placeholder" = "फ़ॉन्ट आकार (12-128)";
+"config.fontSize.preview" = "नमूना: ABC abc पाठ";
+"config.fontSize.help" = "इनपुट फ़ील्ड के लिए फ़ॉन्ट आकार सेट करें (डिफ़ॉल्ट: 64pt)";
+"config.appsScript.label" = "Apps Script Web App URL";
+"config.appsScript.help" = "कॉन्फ़िगर होने पर OAuth के बिना पढ़ने/लिखने की अनुमति देता है (पहले उपयोग किया जाता है)";
+"config.appsScript.active" = "Apps Script मोड सक्रिय";
+"config.apiKey.label" = "Google Sheets API कुंजी";
+"config.apiKey.placeholder" = "API कुंजी दर्ज करें";
+"config.apiKey.help" = "Google Cloud Console से API कुंजी दर्ज करें";
+"config.sheetName.label" = "शीट टैब नाम";
+"config.sheetName.placeholder" = "शीट टैब नाम (डिफ़ॉल्ट: Sheet1)";
+"config.sheetName.help" = "Google Sheets में डेटा इनपुट के लिए टैब नाम";
+"config.oauth.label" = "OAuth 2.0 प्रमाणीकरण (लिखने के लिए)";
+"config.oauth.authenticating" = "प्रमाणीकरण हो रहा है...";
+"config.oauth.login" = "Google लॉगिन";
+"config.oauth.authenticated" = "प्रमाणित";
+"config.oauth.logout" = "लॉगआउट";
+"config.oauth.logoutComplete" = "लॉगआउट हो गया";
+"config.oauth.help" = "Google Cloud Console → OAuth 2.0 Client ID (डेस्कटॉप प्रकार)";
+"config.oauth.unavailable" = "प्रमाणीकरण सेवा उपलब्ध नहीं है";
+"config.oauth.success" = "प्रमाणीकरण पूर्ण!";
+"config.oauth.failure %@" = "प्रमाणीकरण विफल: %@";
+"config.hideApp.label" = "निष्पादन के बाद ऐप छुपाएँ";
+"config.hideApp.toggle" = "निष्पादन के बाद स्वचालित रूप से ऐप छुपाएँ";
+"config.hideApp.help" = "यदि अनुत्तरित प्रश्न मिलते हैं तो ऐप नहीं छुपाया जाएगा";
+"config.validation.invalidUrl" = "अमान्य Google Sheets URL";
+"config.validation.invalidRow" = "पंक्ति संख्या 1-1000 के बीच होनी चाहिए";
+"config.validation.invalidFontSize" = "फ़ॉन्ट आकार 12-128pt के बीच होना चाहिए";
+
+/* === NodeEnvAlertView === */
+"nodeEnv.title" = "Node.js वातावरण जाँच परिणाम";
+"nodeEnv.subtitle" = "ऐप के सही ढंग से काम करने के लिए निम्नलिखित समस्याओं को हल करना होगा।";
+"nodeEnv.copyAll" = "सभी कमांड कॉपी करें";
+"nodeEnv.copyCommand" = "कमांड कॉपी करें";
+
+/* === NodeEnvironmentChecker === */
+"nodeCheck.noNode.title" = "Node.js इंस्टॉल नहीं है";
+"nodeCheck.noNode.desc" = "इस ऐप को Google Sheets एकीकरण के लिए Node.js की आवश्यकता है। कृपया Node.js इंस्टॉल करें।";
+"nodeCheck.oldVersion.title %@" = "Node.js संस्करण बहुत पुराना है (%@)";
+"nodeCheck.oldVersion.desc %lld %@" = "न्यूनतम v%lld या उससे अधिक आवश्यक है। वर्तमान में %@ इंस्टॉल है।";
+"nodeCheck.noModules.title" = "npm पैकेज इंस्टॉल नहीं हैं";
+"nodeCheck.noModules.desc" = "Node.js मॉड्यूल निष्पादन के लिए आवश्यक पैकेज (express, playwright, आदि) इंस्टॉल नहीं हैं।";
+"nodeCheck.missingPkgs.title" = "कुछ npm पैकेज गायब हैं";
+"nodeCheck.missingPkgs.desc %@" = "गायब पैकेज: %@";
+"nodeCheck.noPlaywright.title" = "Playwright ब्राउज़र (Chromium) इंस्टॉल नहीं है";
+"nodeCheck.noPlaywright.desc" = "Google Sheets स्वचालन के लिए Chromium ब्राउज़र आवश्यक है। कृपया Playwright के माध्यम से इंस्टॉल करें।";
+"nodeCheck.noChromium.title" = "Playwright Chromium ब्राउज़र इंस्टॉल नहीं है";
+"nodeCheck.noChromium.desc" = "Playwright कैश में Chromium नहीं मिला। कृपया Chromium इंस्टॉल करें।";
+"nodeCheck.cantReadDir.title" = "Playwright ब्राउज़र डायरेक्टरी पढ़ नहीं सकते";
+"nodeCheck.cantReadDir.desc %@" = "Playwright कैश डायरेक्टरी तक पहुँचने में विफल: %@";
+
+/* === DataManager === */
+"status.initializing" = "🚀 आरंभ हो रहा है... (Playwright सर्वर शुरू हो रहा है)";
+"status.initComplete" = "✅ आरंभीकरण पूर्ण!";
+"status.initFailed" = "❌ आरंभीकरण विफल: Playwright सर्वर प्रारंभ त्रुटि";
+"status.loadingConfig" = "📋 सेटिंग्स लोड हो रही हैं...";
+"status.saving" = "💾 सहेजा जा रहा है...";
+"status.executing" = "🚀 Playwright के माध्यम से Google Sheets में लिखा जा रहा है...";
+"status.complete %lld" = "✅ पूर्ण! (पंक्ति %lld)";
+"status.complete.simple" = "✅ पूर्ण!";
+"status.unanswered %lld" = "❓ %lld अनुत्तरित प्रश्न मिले!";
+"status.needsRestart" = "🔄 ब्राउज़र पुनः कनेक्शन आवश्यक";
+"status.addLineFailed" = "❌ विफल: addLine कमांड त्रुटि - जाँचें कि Playwright सर्वर चल रहा है";
+"status.failed %@" = "❌ विफल: %@";
+"status.checkingQuestions" = "🔍 अनुत्तरित प्रश्नों की जाँच हो रही है...";
+"status.noUnanswered" = "कोई अनुत्तरित प्रश्न नहीं मिले।";
+"status.foundUnanswered %lld" = "%lld अनुत्तरित प्रश्न मिले!";
+"status.nodeEnvIssues %lld %lld" = "⚠️ %lld Node.js वातावरण समस्या(एँ) मिलीं (गंभीर: %lld)";
+"status.restartingBrowser" = "🔄 ब्राउज़र पुनः आरंभ हो रहा है...";
+"status.restartComplete" = "✅ ब्राउज़र पुनः आरंभ पूर्ण!";
+"status.restartFailed" = "❌ ब्राउज़र पुनः आरंभ विफल";
+
+/* === ContentView (Question Alert Detail) === */
+"content.alert.unanswered.detail %lld %@" = "%lld अनुत्तरित प्रश्न मिले।\n\nप्रश्न:\n%@";
+"content.alert.unanswered.row %lld %@" = "• पंक्ति %lld: %@";
+
+/* === ConfigEditView (अतिरिक्त) === */
+"config.fontSize.unit" = "pt";
+"config.appsScript.placeholder" = "https://script.google.com/macros/s/.../exec";
+"config.oauth.clientId.placeholder" = "OAuth Client ID";
+"config.oauth.clientSecret.placeholder" = "OAuth Client Secret";
+
+/* === AppError === */
+"error.fileWrite %@" = "फ़ाइल सहेजना विफल: %@";
+"error.fileRead %@" = "फ़ाइल पढ़ना विफल: %@";
+"error.scriptExecution %lld" = "स्क्रिप्ट निष्पादन विफल (कोड: %lld)";
+"error.invalidInput %@" = "इनपुट त्रुटि: %@";
+"error.configValidation %@" = "कॉन्फ़िगरेशन त्रुटि: %@";
+
+/* === GoogleSheetsError === */
+"error.sheets.noAuth" = "कोई प्रमाणीकरण नहीं। कृपया API कुंजी या OAuth टोकन सेट करें।";
+"error.sheets.invalidUrl %@" = "अमान्य URL: %@";
+"error.sheets.invalidResponse" = "सर्वर प्रतिक्रिया संसाधित करने में असमर्थ।";
+"error.sheets.httpError %lld" = "HTTP त्रुटि (कोड: %lld)";
+"error.sheets.apiError %lld %@" = "Google Sheets API त्रुटि (%lld): %@";
+"error.sheets.noSpreadsheetId" = "Google Sheets URL में Spreadsheet ID नहीं मिली।";
+
+/* === GoogleAuthError === */
+"error.auth.missingClientId" = "OAuth Client ID सेट नहीं है। कृपया सेटिंग्स में दर्ज करें।";
+"error.auth.noRefreshToken" = "लॉगिन आवश्यक है। कृपया पहले Google से लॉगिन करें।";
+"error.auth.invalidAuthUrl" = "प्रमाणीकरण URL जनरेट करने में विफल।";
+"error.auth.tokenExchangeFailed" = "टोकन एक्सचेंज विफल। कृपया Client ID/Secret जाँचें।";
+"error.auth.timeout" = "प्रमाणीकरण समय समाप्त। कृपया पुनः प्रयास करें।";
+"error.auth.serverStartFailed" = "स्थानीय प्रमाणीकरण सर्वर शुरू करने में विफल।";
+
+/* === Auth HTML === */
+"auth.html.success.title" = "प्रमाणीकरण पूर्ण!";
+"auth.html.success.message" = "इस विंडो को बंद करें और fGoogleSheet ऐप पर वापस जाएँ।";
+"auth.html.failure.title" = "प्रमाणीकरण विफल";
+"auth.html.failure.message" = "कृपया पुनः प्रयास करें।";
+
+/* === Language Settings === */
+"config.language.label" = "भाषा";
+"config.language.help" = "ऐप प्रदर्शन भाषा बदलें (पुनः आरंभ आवश्यक)";
+"config.language.system" = "सिस्टम डिफ़ॉल्ट";
+"config.language.restartTitle" = "भाषा बदली गई";
+"config.language.restartMessage" = "भाषा परिवर्तन लागू करने के लिए ऐप को पुनः आरंभ करना होगा।";
+"config.language.restartNow" = "अभी पुनः आरंभ करें";
+"config.language.restartLater" = "बाद में";

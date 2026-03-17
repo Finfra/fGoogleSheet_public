@@ -1,0 +1,405 @@
+openapi: 3.0.3
+info:
+  title: fGoogleSheet REST API
+  description: |
+    fGoogleSheet Google Sheets Management REST API.
+    A macOS native app (Swift/NWListener) that provides HTTP endpoints
+    to upload data, check unanswered questions, and monitor app status.
+    Configuration changes are excluded from the API for security reasons.
+
+    **Security**: The API server is disabled by default. When enabled,
+    it binds to localhost (127.0.0.1) only. External access can be
+    allowed via a checkbox in the settings UI, with IP filtering
+    controlled by a CIDR range (e.g. 192.168.0.0/24). Requests from
+    IPs outside the allowed CIDR range receive 403 Forbidden.
+  version: 1.0.0
+  contact:
+    name: fGoogleSheet
+    url: https://github.com/nowage/fGoogleSheet
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:3013
+    description: Local development server (macOS app)
+
+paths:
+  /:
+    get:
+      summary: Health Check
+      description: |
+        Checks whether the server is running normally.
+        Returns server status including the current access mode.
+      operationId: healthCheck
+      tags:
+        - Status
+      responses:
+        '200':
+          description: Server is running
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              example:
+                status: ok
+                app: fGoogleSheet
+                port: 3013
+                accessMode: API
+
+  /api/add-line:
+    post:
+      summary: Add Line to Google Sheets
+      description: |
+        Uploads a key/value pair to the configured Google Sheets document.
+        The key is written to column A, and the value to column B.
+
+        **App UI behavior**: When a REST request is received,
+        the data is automatically reflected in the app's UI input fields,
+        the upload is triggered, and the current row is incremented.
+      operationId: addLine
+      tags:
+        - Sheets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddLineRequest'
+            examples:
+              withValue:
+                summary: Key and Value pair
+                value:
+                  key: "What is Swift?"
+                  value: "A programming language by Apple."
+              keyOnly:
+                summary: Key only (no answer)
+                value:
+                  key: "What is SwiftUI?"
+      responses:
+        '200':
+          description: Data uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddLineResponse'
+              example:
+                success: true
+                targetRow: 5
+                nextRow: 6
+                newQuestionCnt: 2
+                hasNewQuestions: true
+        '400':
+          description: Bad Request (missing key or JSON parsing failed)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "key field is required"
+        '401':
+          description: Unauthorized (OAuth token expired or not configured)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Authentication required"
+        '500':
+          description: Internal Server Error (Google Sheets API failure)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "Google Sheets API call failed"
+        '503':
+          description: Service Unavailable (app not initialized)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: "DataManager not initialized"
+
+  /api/unanswered:
+    get:
+      summary: Find Unanswered Questions
+      description: |
+        Scans column A and column B to find rows where column A has content
+        but column B is empty (unanswered questions).
+        Scanning stops after 10 consecutive empty rows.
+      operationId: findUnansweredQuestions
+      tags:
+        - Sheets
+      parameters:
+        - name: startRow
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 2
+          description: Row number to start scanning from (defaults to configured currentRow)
+      responses:
+        '200':
+          description: Unanswered questions retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnansweredResponse'
+              example:
+                count: 2
+                questions:
+                  - row: 5
+                    question: "What is async/await in Swift?"
+                    cellA: "A5"
+                    cellB: "B5"
+                  - row: 8
+                    question: "What is @State in SwiftUI?"
+                    cellA: "A8"
+                    cellB: "B8"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/status:
+    get:
+      summary: App Status
+      description: |
+        Returns the current state of the application including
+        execution state, access mode, authentication status, and more.
+      operationId: getStatus
+      tags:
+        - Status
+      responses:
+        '200':
+          description: App status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+              example:
+                executionState: idle
+                accessMode: API
+                currentRow: 5
+                sheetName: Sheet1
+                hasUnansweredQuestions: true
+                unansweredQuestionsCount: 2
+                isAuthenticated: true
+                restServerPort: 3013
+
+  /api/next-row:
+    get:
+      summary: Find Next Empty Row
+      description: |
+        Finds the next empty row in the Google Sheets document,
+        along with the count of unanswered questions found during scanning.
+      operationId: findNextRow
+      tags:
+        - Sheets
+      parameters:
+        - name: startRow
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 2
+          description: Row number to start scanning from
+      responses:
+        '200':
+          description: Next empty row found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NextRowResponse'
+              example:
+                nextRow: 15
+                newQuestionCnt: 3
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    AddLineRequest:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Text to write in column A (question/key)
+          example: "What is Swift?"
+        value:
+          type: string
+          description: Text to write in column B (answer/value). Empty string allowed.
+          default: ""
+          example: "A programming language by Apple."
+      required:
+        - key
+
+    AddLineResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the upload succeeded
+        targetRow:
+          type: integer
+          description: Row number where data was written
+        nextRow:
+          type: integer
+          description: Next empty row number
+        newQuestionCnt:
+          type: integer
+          description: Count of unanswered questions (A has content, B is empty)
+        hasNewQuestions:
+          type: boolean
+          description: Whether there are unanswered questions
+      required:
+        - success
+        - targetRow
+        - nextRow
+
+    UnansweredResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of unanswered questions
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/UnansweredQuestion'
+      required:
+        - count
+        - questions
+
+    UnansweredQuestion:
+      type: object
+      properties:
+        row:
+          type: integer
+          description: Row number
+        question:
+          type: string
+          description: Content of column A
+        cellA:
+          type: string
+          description: Cell address (e.g. "A5")
+        cellB:
+          type: string
+          description: Cell address (e.g. "B5")
+
+    StatusResponse:
+      type: object
+      properties:
+        executionState:
+          type: string
+          enum:
+            - idle
+            - saving
+            - executing
+            - completed
+            - failed
+            - loadingConfig
+            - needsRestart
+          description: Current execution state
+        accessMode:
+          type: string
+          enum:
+            - API
+            - AppsScript
+            - Playwright
+          description: Current Google Sheets access method
+        currentRow:
+          type: integer
+          description: Current row number for data input
+        sheetName:
+          type: string
+          description: Current sheet tab name
+        hasUnansweredQuestions:
+          type: boolean
+        unansweredQuestionsCount:
+          type: integer
+        isAuthenticated:
+          type: boolean
+          description: Whether OAuth authentication is valid
+        restServerPort:
+          type: integer
+      required:
+        - executionState
+        - accessMode
+
+    NextRowResponse:
+      type: object
+      properties:
+        nextRow:
+          type: integer
+          description: Next empty row number
+        newQuestionCnt:
+          type: integer
+          description: Count of unanswered questions found during scan
+      required:
+        - nextRow
+        - newQuestionCnt
+
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        app:
+          type: string
+          example: fGoogleSheet
+        port:
+          type: integer
+          example: 3015
+        accessMode:
+          type: string
+          example: API
+      required:
+        - status
+        - app
+        - port
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+      required:
+        - error
+
+  responses:
+    Forbidden:
+      description: Forbidden - client IP is not within the allowed CIDR range
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: "Access denied: IP not in allowed CIDR range"
+
+tags:
+  - name: Status
+    description: Server and app status check
+  - name: Sheets
+    description: Google Sheets data operations (upload, query, scan)
