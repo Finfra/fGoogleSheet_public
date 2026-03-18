@@ -1,0 +1,10 @@
+{
+  "name": "fgooglesheet",
+  "description": "Manage Google Sheets data (add lines, find unanswered questions) via fGoogleSheet REST API",
+  "version": "1.0.0",
+  "author": {
+    "name": "nowage"
+  },
+  "homepage": "https://github.com/nowage/fGoogleSheet",
+  "repository": "https://github.com/nowage/fGoogleSheet"
+}

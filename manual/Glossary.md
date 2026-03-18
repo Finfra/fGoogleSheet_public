@@ -16,6 +16,11 @@
 | IP 범위 허용 표기법               | CIDR              | CIDR              | CIDR                   | CIDR                   | CIDR                       | CIDR                         |
 | 서버 동작 확인 요청               | Health Check      | 헬스 체크         | ヘルスチェック         | Gesundheitscheck       | Verificación de estado     | Vérification de santé        |
 | 교차 출처 리소스 공유             | CORS              | CORS              | CORS                   | CORS                   | CORS                       | CORS                         |
+| AI 모델-도구 간 표준 통신 프로토콜 | MCP (Model Context Protocol) | MCP (모델 컨텍스트 프로토콜) | MCP (モデルコンテキストプロトコル) | MCP (Modellkontextprotokoll) | MCP (Protocolo de Contexto de Modelo) | MCP (Protocole de Contexte de Modèle) |
+| Claude Code용 플러그인 스킬      | Claude Code Skill | Claude Code 스킬  | Claude Code スキル     | Claude Code Skill      | Claude Code Skill          | Claude Code Skill            |
+| MCP 프로토콜 기반 브릿지 서버     | MCP Server        | MCP 서버          | MCPサーバー            | MCP-Server             | Servidor MCP               | Serveur MCP                  |
+| stdio 기반 표준 입출력 트랜스포트 | stdio Transport   | stdio 트랜스포트  | stdio トランスポート   | stdio Transport        | Transporte stdio           | Transport stdio              |
+| 슬래시(/) 접두사 명령어 방식      | Slash Command     | 슬래시 커맨드     | スラッシュコマンド     | Slash-Befehl           | Comando slash              | Commande slash               |
 
 > **참고**:
 > *   빈 칸은 아직 번역이 확정되지 않았거나, 해당 언어 리소스 파일에서 정확한 매칭을 찾지 못한 항목입니다.
