@@ -81,6 +81,45 @@ npx playwright install chromium
 - 실행 완료 후 자동으로 앱을 숨기는 옵션
 - 답변이 없는 질문이 발견되면 숨기지 않음
 
+### 2.10 REST API 서버 설정
+외부 클라이언트(curl, 스크립트, 다른 앱)에서 HTTP로 앱 기능을 제어할 수 있는 내장 REST API 서버입니다.
+
+| 항목 | 설명 | 기본값 |
+|------|------|--------|
+| API 서버 활성화 | REST API 서버 on/off | 비활성 |
+| 포트 | 서버 리스닝 포트 번호 | 3013 |
+| 외부 접속 허용 | 로컬 외 IP 접근 허용 여부 | 비허용 |
+| 허용 CIDR | 접근 허용 IP 범위 (CIDR 표기) | 127.0.0.1/32 |
+
+**CIDR 예시:**
+| CIDR | 허용 범위 |
+|------|-----------|
+| `127.0.0.1/32` | 로컬만 (기본값) |
+| `192.168.0.0/24` | 192.168.0.1~254 |
+| `0.0.0.0/0` | 모든 IP (주의) |
+
+**사용 예시:**
+```bash
+# 헬스 체크
+curl http://localhost:3013/
+
+# 데이터 업로드
+curl -X POST http://localhost:3013/api/add-line \
+  -H "Content-Type: application/json" \
+  -d '{"key":"질문","value":"답변"}'
+
+# 미답변 질문 조회
+curl http://localhost:3013/api/unanswered
+
+# 앱 상태 확인
+curl http://localhost:3013/api/status
+
+# 다음 빈 행 조회
+curl http://localhost:3013/api/next-row
+```
+
+> 전체 API 문서: `_public/api/openapi.yaml` 참조
+
 ---
 
 ## 3. 설정 파일 위치
@@ -102,6 +141,10 @@ npx playwright install chromium
 | `config_oauth_client_secret.txt` | OAuth Client Secret |
 | `config_refresh_token.txt` | OAuth Refresh Token |
 | `config_webapp_url.txt` | Apps Script Web App URL |
+| `config_rest_api_enabled.txt` | REST API 서버 활성화 여부 |
+| `config_rest_api_port.txt` | REST API 서버 포트 |
+| `config_rest_api_allow_external.txt` | 외부 접속 허용 여부 |
+| `config_rest_api_cidr.txt` | 허용 CIDR 범위 |
 
 ---
 

@@ -12,6 +12,10 @@
 | 빈 행을 찾아 데이터를 추가함      | Append            | 이어쓰기 (추가)   | 追加                   | Anhängen               | Añadir                     | Ajouter                      |
 | 답변을 찾지 못한 질문 항목        | Unanswered        | 미답변 질문       | 未回答の質問           | Unbeantwortet          | Sin respuesta              | Sans réponse                 |
 | 앱의 동작을 제어하는 옵션         | Settings          | 설정              | 設定                   | Einstellungen          | Configuración              | Paramètres                   |
+| 내장 HTTP API 서버                | REST API Server   | REST API 서버     | REST APIサーバー       | REST-API-Server        | Servidor REST API          | Serveur REST API             |
+| IP 범위 허용 표기법               | CIDR              | CIDR              | CIDR                   | CIDR                   | CIDR                       | CIDR                         |
+| 서버 동작 확인 요청               | Health Check      | 헬스 체크         | ヘルスチェック         | Gesundheitscheck       | Verificación de estado     | Vérification de santé        |
+| 교차 출처 리소스 공유             | CORS              | CORS              | CORS                   | CORS                   | CORS                       | CORS                         |
 
 > **참고**:
 > *   빈 칸은 아직 번역이 확정되지 않았거나, 해당 언어 리소스 파일에서 정확한 매칭을 찾지 못한 항목입니다.

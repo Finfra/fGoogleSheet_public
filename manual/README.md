@@ -19,6 +19,11 @@
   - UsingInput.md: Key/Value 입력 폼, 멀티라인 TextEditor 사용법
   - Search.md: 답변 없는 질문 검색(`cmd+f`) 동작 원리
   - Settings.md: 외부 ID, API Key, 탭 변경 및 폰트 크기 변경
+- 05_REST_API/
+  - REST_Setup.md: REST API 서버 활성화 및 설정 (포트, CIDR)
+  - REST_Endpoints.md: 엔드포인트별 사용법 (curl 예시 포함)
+  - REST_Security.md: CIDR 기반 IP 필터링, 보안 정책
+  - REST_Automation.md: 외부 스크립트/자동화 연동 가이드
 - 07_Debugging/
   - Troubleshooting.md: API 권한(Network 이슈), 데이터 수신 에러 해결 등
 - 08_Reference/
@@ -41,6 +46,7 @@
 - [ ] 01_Overview/Introduction.md 작성
 - [ ] 02_Install/Setup_API.md 작성 (권한 획득 스크린샷)
 - [ ] 04_UserGuide/Settings.md 작성 (UI 각 영역 설명)
+- [ ] 05_REST_API/ 전체 작성 (설정, 엔드포인트, 보안, 자동화)
 - [ ] 08_Reference/Shortcuts.md 정리
 - [ ] 09_FAQ/FAQ.md (자주 발생하는 시트 연동 오류 모음)
 

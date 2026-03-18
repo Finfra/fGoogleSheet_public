@@ -370,7 +370,7 @@ components:
           example: fGoogleSheet
         port:
           type: integer
-          example: 3015
+          example: 3013
         accessMode:
           type: string
           example: API
