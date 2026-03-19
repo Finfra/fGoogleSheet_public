@@ -1,0 +1,37 @@
+# fGoogleSheet 사용자 매뉴얼 참조 (Reference Agenda)
+
+## 1. 앱 기본 및 연결 (App Basics & Connection)
+### 1-1. Google Sheets 연결 원리 (Google Sheets Connection)
+### 1-2. API Key 및 시트 설정 (API Key & Config)
+
+## 2. 데이터 입력 및 관리 (Data Input & Management)
+### 2-1. Key/Value 기반 입력 (Key/Value Input)
+### 2-2. 미답변 질문 검색 및 이동 (Unanswered Questions)
+### 2-3. 단축키 동작 원리 (Shortcuts)
+
+## 3. 고급 기능 및 설정 (Advanced Features)
+### 3-1. 설정 파일 관리 (Configuration Management)
+### 3-2. 로깅 및 에러 처리 (Logging & Error Handling)
+
+## 4. REST API 서버 (REST API Server)
+### 4-1. REST API 서버 활성화 및 설정 (Server Setup & Configuration)
+### 4-2. 엔드포인트 사용 가이드 (Endpoint Usage Guide)
+### 4-3. 보안: CIDR 기반 IP 필터링 (Security: CIDR-based IP Filtering)
+### 4-4. HTTP 에러 코드 및 응답 형식 (HTTP Error Codes & Response Format)
+### 4-5. 외부 자동화 연동 예시 (Automation Integration Examples)
+
+## 5. Claude Code Skill (AI 에이전트 스킬)
+### 5-1. 스킬 개요 및 아키텍처 (Overview & Architecture)
+### 5-2. 설치 방법 (Installation)
+### 5-3. 사용 예시: 슬래시 커맨드 (Usage: Slash Commands)
+### 5-4. 옵션 및 파라미터 (Options & Parameters)
+### 5-5. 전제 조건 및 트러블슈팅 (Prerequisites & Troubleshooting)
+
+## 6. MCP 서버 (Model Context Protocol Server)
+### 6-1. MCP 개요 및 아키텍처 (Overview & Architecture)
+### 6-2. 설치 방법: npm / npx / 소스 (Installation)
+### 6-3. 제공 도구 목록 (Available Tools)
+### 6-4. Claude Desktop 설정 (Claude Desktop Configuration)
+### 6-5. Claude Code 설정 (Claude Code Configuration)
+### 6-6. 서버 URL 설정: CLI / 환경변수 / 기본값 (Server URL Resolution)
+### 6-7. 전제 조건 및 트러블슈팅 (Prerequisites & Troubleshooting)
