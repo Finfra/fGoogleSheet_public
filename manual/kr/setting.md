@@ -120,7 +120,7 @@ curl http://localhost:3013/api/status
 curl http://localhost:3013/api/next-row
 ```
 
-> 전체 API 문서: `_public/api/openapi.yaml` 참조
+> 전체 API 문서: `api/openapi.yaml` 참조
 
 ---
 

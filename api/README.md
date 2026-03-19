@@ -263,10 +263,10 @@ REST API requests are automatically synchronized with the app UI:
 
 ```bash
 # Automated tests (9 items)
-bash _public/api/test-api.sh
+bash api/test-api.sh
 
 # Remote server test
-bash _public/api/test-api.sh --server=http://192.168.0.10:3013
+bash api/test-api.sh --server=http://192.168.0.10:3013
 ```
 
 Test items:

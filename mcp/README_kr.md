@@ -46,7 +46,7 @@ npx fgooglesheet-mcp
 
 ```bash
 git clone https://github.com/nowage/fGoogleSheet.git
-cd fGoogleSheet/_public/mcp
+cd fGoogleSheet/mcp
 npm install
 node index.js
 ```

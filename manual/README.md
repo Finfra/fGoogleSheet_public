@@ -48,9 +48,9 @@
 - 활용: `Key`와 `Value` 입력 후 `cmd+r` 단축키로 시트에 데이터 적재
 
 ## 관련 리소스
-- **REST API 스펙**: `_public/api/openapi.yaml` (OpenAPI 3.0.3)
-- **Claude Code Skill**: `_public/agents/claude/` (플러그인 및 스킬 파일)
-- **MCP 서버**: `_public/mcp/` (Node.js MCP 서버 소스)
+- **REST API 스펙**: `api/openapi.yaml` (OpenAPI 3.0.3)
+- **Claude Code Skill**: `agents/claude/` (플러그인 및 스킬 파일)
+- **MCP 서버**: `mcp/` (Node.js MCP 서버 소스)
 - **기능 명세서**: `FunctionalSpecification.md` (REST API, Skill, MCP 상세 설명 포함)
 
 ## 향후 작성 일정(To‑Do)

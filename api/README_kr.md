@@ -263,10 +263,10 @@ REST API 요청 시 앱 UI와 자동으로 연동됩니다:
 
 ```bash
 # 자동화 테스트 (9개 항목)
-bash _public/api/test-api.sh
+bash api/test-api.sh
 
 # 원격 서버 테스트
-bash _public/api/test-api.sh --server=http://192.168.0.10:3013
+bash api/test-api.sh --server=http://192.168.0.10:3013
 ```
 
 테스트 항목:

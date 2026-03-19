@@ -120,7 +120,7 @@ curl http://localhost:3013/api/status
 curl http://localhost:3013/api/next-row
 ```
 
-> Full API documentation: See `_public/api/openapi.yaml`
+> Full API documentation: See `api/openapi.yaml`
 
 ---
 

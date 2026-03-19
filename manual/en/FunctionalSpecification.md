@@ -191,7 +191,7 @@ curl "http://localhost:3013/api/next-row?startRow=10"
 ## 5.6. Automatic UI Sync
 When data is uploaded via REST API, the app UI input fields are automatically updated with the data. Real-time synchronization with ContentView is achieved through NotificationCenter.
 
-> Full API specification: See `_public/api/openapi.yaml`
+> Full API specification: See `api/openapi.yaml`
 
 ---
 
@@ -218,13 +218,13 @@ fGoogleSheet provides a dedicated plugin (skill) for Claude Code. After installa
 ### Method 2: Manual Copy
 ```bash
 # Run from fGoogleSheet project root
-cp -r _public/agents/claude/.claude-plugin .claude-plugin
-cp -r _public/agents/claude/skills .claude/skills
+cp -r agents/claude/.claude-plugin .claude-plugin
+cp -r agents/claude/skills .claude/skills
 ```
 
 ### Method 3: Symbolic Link
 ```bash
-ln -sf _public/agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
+ln -sf agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
 ```
 
 ## 6.4. Usage Examples
@@ -259,7 +259,7 @@ ln -sf _public/agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
 - REST API server must be enabled in app settings
 - Default server address: `http://localhost:3013`
 
-> Plugin details: See `_public/agents/claude/README_kr.md`
+> Plugin details: See `agents/claude/README_kr.md`
 
 ---
 
@@ -303,7 +303,7 @@ fgooglesheet-mcp
 
 ### Method 3: Run from Source
 ```bash
-cd _public/mcp
+cd mcp
 npm install
 node index.js
 ```
@@ -381,4 +381,4 @@ claude mcp add fgooglesheet npx fgooglesheet-mcp -- --server=http://192.168.1.10
 - fGoogleSheet.app must be running with REST API enabled
 - MCP-compatible client (Claude Desktop, Claude Code, etc.)
 
-> MCP server source: See `_public/mcp/`
+> MCP server source: See `mcp/`

@@ -74,14 +74,14 @@ fGoogleSheet REST API를 통해 Google Sheets 데이터를 관리합니다 (Key/
 
 ```bash
 # fGoogleSheet 프로젝트 루트에서 실행
-cp -r _public/agents/claude/.claude-plugin .claude-plugin
-cp -r _public/agents/claude/skills .claude/skills
+cp -r agents/claude/.claude-plugin .claude-plugin
+cp -r agents/claude/skills .claude/skills
 ```
 
 ### 방법 3: 심볼릭 링크
 
 ```bash
-ln -sf _public/agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
+ln -sf agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
 ```
 
 ---
@@ -102,7 +102,7 @@ fGoogleSheet REST API 서버가 실행 중이어야 합니다:
 
 | 확장                        | 위치           | 설명                                              |
 | --------------------------- | -------------- | ------------------------------------------------- |
-| [MCP Server](../../mcp/)   | `_public/mcp/` | MCP 프로토콜로 Google Sheets 관리 (Claude Desktop 호환) |
+| [MCP Server](../../mcp/)   | `mcp/` | MCP 프로토콜로 Google Sheets 관리 (Claude Desktop 호환) |
 
 ---
 
