@@ -1,5 +1,8 @@
 # fGoogleSheet
 
+[![ko](https://img.shields.io/badge/lang-ko-red.svg)](./README_kr.md)
+<img src="./manual/app-icon.png" width="28" alt="fGoogleSheet Icon"> [![Product Page](https://img.shields.io/badge/Product_Page-fGoogleSheet-blue)](https://finfra.kr/product/fGoogleSheet/en/index.html)
+
 > **The fastest Google Sheets Mac menu bar app.**
 
 macOS Menu Bar App for ultra-fast Google Sheets access. Connect your Google account and manage spreadsheets directly from the menu bar.
@@ -21,8 +24,20 @@ macOS Menu Bar App for ultra-fast Google Sheets access. Connect your Google acco
 
 | Language | Link |
 |----------|------|
-| English | [fGoogleSheet - Product Page](http://finfra.kr/product/fGoogleSheet/en/index.html) |
-| Korean | [fGoogleSheet - 제품 페이지](http://finfra.kr/product/fGoogleSheet/kr/index.html) |
+| English | [fGoogleSheet - Product Page](https://finfra.kr/product/fGoogleSheet/en/index.html) |
+| Korean | [fGoogleSheet - 제품 페이지](https://finfra.kr/product/fGoogleSheet/kr/index.html) |
+
+## Other Products by finfra
+
+| App | Description | Link |
+|-----|-------------|------|
+| fSnippet | Powerful text expansion & snippet tool | [EN](https://finfra.kr/product/fSnippet/en/index.html) / [KR](https://finfra.kr/product/fSnippet/kr/index.html) |
+| fWarrange | The ultimate Mac window manager & layout restore | [EN](https://finfra.kr/product/fWarrange/en/index.html) / [KR](https://finfra.kr/product/fWarrange/kr/index.html) |
+| fBanner | Clipboard to banner image, instantly | [EN](https://finfra.kr/product/fBanner/en/index.html) / [KR](https://finfra.kr/product/fBanner/kr/index.html) |
+| fBoard | Your personalized screen board | [EN](https://finfra.kr/product/fBoard/en/index.html) / [KR](https://finfra.kr/product/fBoard/kr/index.html) |
+| fQRGen | Clipboard to QR code, instantly | [EN](https://finfra.kr/product/fQRGen/en/index.html) / [KR](https://finfra.kr/product/fQRGen/kr/index.html) |
+
+[View all products](https://finfra.kr/en/product.html)
 
 ## Documentation
 

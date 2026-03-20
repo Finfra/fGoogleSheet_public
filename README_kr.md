@@ -1,5 +1,8 @@
 # fGoogleSheet
 
+[![en](https://img.shields.io/badge/lang-en-blue.svg)](./README.md)
+<img src="./manual/app-icon.png" width="28" alt="fGoogleSheet 아이콘"> [![제품 페이지](https://img.shields.io/badge/제품_페이지-fGoogleSheet-blue)](https://finfra.kr/product/fGoogleSheet/kr/index.html)
+
 > **가장 빠른 Google Sheets Mac 메뉴바 앱.**
 
 macOS 메뉴바에서 Google Sheets에 초고속으로 접근하는 앱입니다. Google 계정을 연결하고 메뉴바에서 직접 스프레드시트를 관리하세요.
@@ -21,8 +24,20 @@ macOS 메뉴바에서 Google Sheets에 초고속으로 접근하는 앱입니다
 
 | 언어 | 링크 |
 |------|------|
-| English | [fGoogleSheet - Product Page](http://finfra.kr/product/fGoogleSheet/en/index.html) |
-| 한국어 | [fGoogleSheet - 제품 페이지](http://finfra.kr/product/fGoogleSheet/kr/index.html) |
+| English | [fGoogleSheet - Product Page](https://finfra.kr/product/fGoogleSheet/en/index.html) |
+| 한국어 | [fGoogleSheet - 제품 페이지](https://finfra.kr/product/fGoogleSheet/kr/index.html) |
+
+## finfra 다른 제품
+
+| 앱 | 설명 | 링크 |
+|----|------|------|
+| fSnippet | 모든 텍스트의 확장, 강력한 스니펫 도구 | [EN](https://finfra.kr/product/fSnippet/en/index.html) / [KR](https://finfra.kr/product/fSnippet/kr/index.html) |
+| fWarrange | 가장 완벽한 Mac 창 관리, 손쉬운 레이아웃 복원 | [EN](https://finfra.kr/product/fWarrange/en/index.html) / [KR](https://finfra.kr/product/fWarrange/kr/index.html) |
+| fBanner | 클립보드를 복사하는 순간, 배너 이미지가 완성 | [EN](https://finfra.kr/product/fBanner/en/index.html) / [KR](https://finfra.kr/product/fBanner/kr/index.html) |
+| fBoard | 나만의 맞춤형 스크린 보드 | [EN](https://finfra.kr/product/fBoard/en/index.html) / [KR](https://finfra.kr/product/fBoard/kr/index.html) |
+| fQRGen | 클립보드를 복사하는 순간, QR 코드가 완성 | [EN](https://finfra.kr/product/fQRGen/en/index.html) / [KR](https://finfra.kr/product/fQRGen/kr/index.html) |
+
+[전체 제품 보기](https://finfra.kr/kr/product.html)
 
 ## 문서
 
