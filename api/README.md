@@ -1,12 +1,16 @@
-# fGoogleSheet REST API Documentation
+---
+title: fGoogleSheet REST API Documentation
+description: fGoogleSheet app built-in REST API endpoints and usage guide
+date: 2026-03-26
+---
 
-## Overview
+# Overview
 
 fGoogleSheet provides a REST API for uploading and managing Key/Value data to Google Sheets.
 
-| Server | Tech Stack | Default Port |
-|--------|-----------|--------------|
-| macOS Native App | Swift / Network.framework (NWListener) | 3013 |
+| Server           | Tech Stack                             | Default Port |
+| ---------------- | -------------------------------------- | ------------ |
+| macOS Native App | Swift / Network.framework (NWListener) | 3013         |
 
 **Security**: The API server is disabled by default. When enabled, it binds to localhost (127.0.0.1) only. External access can be allowed via a checkbox in the settings UI, with IP filtering controlled by a CIDR range (e.g. `192.168.0.0/24`).
 
@@ -14,9 +18,9 @@ fGoogleSheet provides a REST API for uploading and managing Key/Value data to Go
 
 ---
 
-## Endpoints
+# Endpoints
 
-### 1. Health Check
+## 1. Health Check
 
 ```
 GET /
@@ -34,21 +38,21 @@ GET /
 
 ---
 
-### 2. Add Line to Google Sheets
+## 2. Add Line to Google Sheets
 
 ```
 POST /api/add-line
 Content-Type: application/json
 ```
 
-#### Request Parameters
+### Request Parameters
 
-| Field | Type | Required | Default | Description |
-|-------|------|----------|---------|-------------|
-| `key` | string | Yes | - | Text to write in column A (question/key) |
-| `value` | string | No | `""` | Text to write in column B (answer/value) |
+| Field   | Type   | Required | Default | Description                              |
+| ------- | ------ | -------- | ------- | ---------------------------------------- |
+| `key`   | string | Yes      | -       | Text to write in column A (question/key) |
+| `value` | string | No       | `""`    | Text to write in column B (answer/value) |
 
-#### Request Example
+### Request Example
 
 ```json
 {
@@ -57,7 +61,7 @@ Content-Type: application/json
 }
 ```
 
-#### Response
+### Response
 
 **Success (200)**:
 ```json
@@ -70,38 +74,38 @@ Content-Type: application/json
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `success` | boolean | Whether the upload succeeded |
-| `targetRow` | integer | Row number where data was written |
-| `nextRow` | integer | Next empty row number |
-| `newQuestionCnt` | integer | Count of unanswered questions |
+| Field             | Type    | Description                            |
+| ----------------- | ------- | -------------------------------------- |
+| `success`         | boolean | Whether the upload succeeded           |
+| `targetRow`       | integer | Row number where data was written      |
+| `nextRow`         | integer | Next empty row number                  |
+| `newQuestionCnt`  | integer | Count of unanswered questions          |
 | `hasNewQuestions` | boolean | Whether there are unanswered questions |
 
 **Errors**:
 
-| Status Code | Cause | Response Example |
-|-------------|-------|------------------|
-| 400 | Missing key or JSON parsing failed | `{"error": "key field is required"}` |
-| 401 | OAuth token expired or not configured | `{"error": "Authentication required"}` |
-| 500 | Google Sheets API failure | `{"error": "Google Sheets API call failed"}` |
-| 503 | App not initialized | `{"error": "DataManager not initialized"}` |
+| Status Code | Cause                                 | Response Example                             |
+| ----------- | ------------------------------------- | -------------------------------------------- |
+| 400         | Missing key or JSON parsing failed    | `{"error": "key field is required"}`         |
+| 401         | OAuth token expired or not configured | `{"error": "Authentication required"}`       |
+| 500         | Google Sheets API failure             | `{"error": "Google Sheets API call failed"}` |
+| 503         | App not initialized                   | `{"error": "DataManager not initialized"}`   |
 
 ---
 
-### 3. Find Unanswered Questions
+## 3. Find Unanswered Questions
 
 ```
 GET /api/unanswered?startRow=2
 ```
 
-#### Request Parameters
+### Request Parameters
 
-| Parameter | In | Required | Default | Description |
-|-----------|-----|----------|---------|-------------|
-| `startRow` | query | No | 2 | Row number to start scanning from |
+| Parameter  | In    | Required | Default | Description                       |
+| ---------- | ----- | -------- | ------- | --------------------------------- |
+| `startRow` | query | No       | 2       | Row number to start scanning from |
 
-#### Response
+### Response
 
 **Success (200)**:
 ```json
@@ -128,7 +132,7 @@ Finds rows where column A has content but column B is empty. Scanning stops afte
 
 ---
 
-### 4. App Status
+## 4. App Status
 
 ```
 GET /api/status
@@ -148,30 +152,30 @@ GET /api/status
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `executionState` | string | Current state (`idle`, `saving`, `executing`, `completed`, `failed`, `loadingConfig`, `needsRestart`) |
-| `accessMode` | string | Google Sheets access method (`API`, `AppsScript`, `Playwright`) |
-| `currentRow` | integer | Current row number for data input |
-| `sheetName` | string | Current sheet tab name |
-| `isAuthenticated` | boolean | Whether OAuth authentication is valid |
-| `restServerPort` | integer | REST server port number |
+| Field             | Type    | Description                                                                                           |
+| ----------------- | ------- | ----------------------------------------------------------------------------------------------------- |
+| `executionState`  | string  | Current state (`idle`, `saving`, `executing`, `completed`, `failed`, `loadingConfig`, `needsRestart`) |
+| `accessMode`      | string  | Google Sheets access method (`API`, `AppsScript`, `Playwright`)                                       |
+| `currentRow`      | integer | Current row number for data input                                                                     |
+| `sheetName`       | string  | Current sheet tab name                                                                                |
+| `isAuthenticated` | boolean | Whether OAuth authentication is valid                                                                 |
+| `restServerPort`  | integer | REST server port number                                                                               |
 
 ---
 
-### 5. Find Next Empty Row
+## 5. Find Next Empty Row
 
 ```
 GET /api/next-row?startRow=2
 ```
 
-#### Request Parameters
+### Request Parameters
 
-| Parameter | In | Required | Default | Description |
-|-----------|-----|----------|---------|-------------|
-| `startRow` | query | No | 2 | Row number to start scanning from |
+| Parameter  | In    | Required | Default | Description                       |
+| ---------- | ----- | -------- | ------- | --------------------------------- |
+| `startRow` | query | No       | 2       | Row number to start scanning from |
 
-#### Response
+### Response
 
 **Success (200)**:
 ```json
@@ -183,9 +187,9 @@ GET /api/next-row?startRow=2
 
 ---
 
-## Usage Examples
+# Usage Examples
 
-### cURL
+## cURL
 
 ```bash
 # Add data
@@ -211,7 +215,7 @@ curl http://localhost:3013/api/next-row
 curl http://localhost:3013/
 ```
 
-### Python
+## Python
 
 ```python
 import requests
@@ -236,30 +240,30 @@ print(response.json())
 
 ---
 
-## Security
+# Security
 
-| Item | Description |
-|------|-------------|
-| Default State | API server **disabled** |
-| Binding | localhost (127.0.0.1) only |
-| External Access | Enabled via settings UI checkbox |
-| IP Filtering | CIDR range configuration (e.g. `192.168.0.0/24`) |
-| CORS | `Access-Control-Allow-Origin: *` |
+| Item            | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| Default State   | API server **disabled**                                                    |
+| Binding         | localhost (127.0.0.1) only                                                 |
+| External Access | Enabled via settings UI checkbox                                           |
+| IP Filtering    | CIDR range configuration (e.g. `192.168.0.0/24`)                           |
+| CORS            | `Access-Control-Allow-Origin: *`                                           |
 | Denied Response | 403 Forbidden (`{"error": "Access denied: IP not in allowed CIDR range"}`) |
 
 ---
 
-## App UI Integration
+# App UI Integration
 
 REST API requests are automatically synchronized with the app UI:
 
-- `POST /api/add-line` automatically reflects data in the app's input fields
-- Current row number increments automatically after upload
-- Configuration changes are **excluded** from the REST API for security (settings UI only)
+* `POST /api/add-line` automatically reflects data in the app's input fields
+* Current row number increments automatically after upload
+* Configuration changes are **excluded** from the REST API for security (settings UI only)
 
 ---
 
-## Testing
+# Testing
 
 ```bash
 # Automated tests (9 items)

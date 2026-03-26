@@ -1,15 +1,19 @@
-# Gemini CLI Tools for fGoogleSheet
+---
+title: Gemini CLI Tools for fGoogleSheet
+description: Gemini CLI tools for interacting with the fGoogleSheet application
+date: 2026-03-26
+---
 
 This directory contains specialized skills and workflows designed for the **Gemini CLI** to interact seamlessly with the running `fGoogleSheet` macOS application through its local REST API.
 
-## Contents
+# Contents
 
-- **skills/**: Contains the `fgooglesheet-api` skill, which provides the agent with knowledge about the fGoogleSheet REST API (including the `openapi.yaml` specifications) and instructions on how to use `curl` to interact with it.
-- **workflows/**: Contains predefined `.md` workflows that instruct the agent on how to accomplish complex tasks, such as finding and answering unanswered questions.
+* **skills/**: Contains the `fgooglesheet-api` skill, which provides the agent with knowledge about the fGoogleSheet REST API (including the `openapi.yaml` specifications) and instructions on how to use `curl` to interact with it.
+* **workflows/**: Contains predefined `.md` workflows that instruct the agent on how to accomplish complex tasks, such as finding and answering unanswered questions.
 
-## Installation Guide
+# Installation Guide
 
-### 1. Install the API Skill
+## 1. Install the API Skill
 
 The skill is provided as a packaged `.skill` file. You can install it into your local workspace (or globally for your user) using the Gemini CLI.
 
@@ -24,7 +28,7 @@ gemini skills install _public/agents/gemini/skills/fgooglesheet-api.skill --scop
 
 **Important:** After the installation is complete, you MUST manually execute the `/skills reload` command inside your interactive Gemini CLI session to enable the newly installed skill. 
 
-### 2. Install the Workflows
+## 2. Install the Workflows
 
 Gemini CLI workflows are simple Markdown files placed in the `.agent/workflows/` directory.
 
@@ -35,11 +39,11 @@ mkdir -p .agent/workflows
 cp _public/agents/gemini/workflows/answer_unanswered_questions.md .agent/workflows/
 ```
 
-## Usage
+# Usage
 
 Once installed and reloaded, simply open the Gemini CLI (`gemini`) and instruct the agent:
 
-- *"Check the fGoogleSheet app status"*
-- *"Find the unanswered questions using the fGoogleSheet API and answer them"*
+* *"Check the fGoogleSheet app status"*
+* *"Find the unanswered questions using the fGoogleSheet API and answer them"*
 
 The agent will automatically trigger the `fgooglesheet-api` skill and follow the defined workflows to execute your request against the local API at `http://localhost:3013`.

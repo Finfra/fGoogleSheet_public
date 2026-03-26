@@ -1,12 +1,16 @@
-# fGoogleSheet REST API 문서
+---
+title: fGoogleSheet REST API 문서
+description: fGoogleSheet 앱 내장 REST API 엔드포인트 및 사용법 (한국어)
+date: 2026-03-26
+---
 
-## 개요
+# 개요
 
 fGoogleSheet은 Google Sheets에 Key/Value 데이터를 업로드하고 관리하는 REST API를 제공합니다.
 
-| 서버 구현 | 기술 스택 | 기본 포트 |
-|-----------|-----------|-----------|
-| macOS 네이티브 앱 | Swift / Network.framework (NWListener) | 3013 |
+| 서버 구현        | 기술 스택                                  | 기본 포트 |
+| ------------ | -------------------------------------- | ----- |
+| macOS 네이티브 앱 | Swift / Network.framework (NWListener) | 3013  |
 
 **보안 정책**: API 서버는 기본적으로 비활성화되어 있습니다. 활성화 시 localhost(127.0.0.1)에만 바인딩됩니다. 설정 UI의 체크박스를 통해 외부 접속을 허용할 수 있으며, CIDR 범위(예: `192.168.0.0/24`)로 IP 필터링을 제어합니다.
 
@@ -14,9 +18,9 @@ fGoogleSheet은 Google Sheets에 Key/Value 데이터를 업로드하고 관리�
 
 ---
 
-## 엔드포인트
+# 엔드포인트
 
-### 1. 서버 상태 확인 (Health Check)
+## 1. 서버 상태 확인 (Health Check)
 
 ```
 GET /
@@ -34,21 +38,21 @@ GET /
 
 ---
 
-### 2. Google Sheets에 데이터 추가
+## 2. Google Sheets에 데이터 추가
 
 ```
 POST /api/add-line
 Content-Type: application/json
 ```
 
-#### 요청 파라미터
+### 요청 파라미터
 
-| 필드 | 타입 | 필수 | 기본값 | 설명 |
-|------|------|------|--------|------|
-| `key` | string | 예 | - | A열에 입력할 텍스트 (질문/키) |
+| 필드      | 타입     | 필수  | 기본값  | 설명                 |
+| ------- | ------ | --- | ---- | ------------------ |
+| `key`   | string | 예   | -    | A열에 입력할 텍스트 (질문/키) |
 | `value` | string | 아니오 | `""` | B열에 입력할 텍스트 (답변/값) |
 
-#### 요청 예시
+### 요청 예시
 
 ```json
 {
@@ -57,7 +61,7 @@ Content-Type: application/json
 }
 ```
 
-#### 응답
+### 응답
 
 **성공 (200)**:
 ```json
@@ -70,38 +74,38 @@ Content-Type: application/json
 }
 ```
 
-| 필드 | 타입 | 설명 |
-|------|------|------|
-| `success` | boolean | 업로드 성공 여부 |
-| `targetRow` | integer | 데이터가 입력된 행 번호 |
-| `nextRow` | integer | 다음 빈 행 번호 |
-| `newQuestionCnt` | integer | 미답변 질문 수 |
-| `hasNewQuestions` | boolean | 미답변 질문 존재 여부 |
+| 필드                | 타입      | 설명            |
+| ----------------- | ------- | ------------- |
+| `success`         | boolean | 업로드 성공 여부     |
+| `targetRow`       | integer | 데이터가 입력된 행 번호 |
+| `nextRow`         | integer | 다음 빈 행 번호     |
+| `newQuestionCnt`  | integer | 미답변 질문 수      |
+| `hasNewQuestions` | boolean | 미답변 질문 존재 여부  |
 
 **에러**:
 
-| 상태 코드 | 원인 | 응답 예시 |
-|-----------|------|-----------|
-| 400 | key 누락 또는 JSON 파싱 실패 | `{"error": "key 필드는 필수입니다"}` |
-| 401 | OAuth 토큰 만료 또는 미설정 | `{"error": "인증이 필요합니다"}` |
-| 500 | Google Sheets API 실패 | `{"error": "Google Sheets API 호출 실패"}` |
-| 503 | 앱 미초기화 | `{"error": "DataManager가 초기화되지 않았습니다"}` |
+| 상태 코드 | 원인                   | 응답 예시                                   |
+| ----- | -------------------- | --------------------------------------- |
+| 400   | key 누락 또는 JSON 파싱 실패 | `{"error": "key 필드는 필수입니다"}`            |
+| 401   | OAuth 토큰 만료 또는 미설정   | `{"error": "인증이 필요합니다"}`                |
+| 500   | Google Sheets API 실패 | `{"error": "Google Sheets API 호출 실패"}`  |
+| 503   | 앱 미초기화               | `{"error": "DataManager가 초기화되지 않았습니다"}` |
 
 ---
 
-### 3. 미답변 질문 조회
+## 3. 미답변 질문 조회
 
 ```
 GET /api/unanswered?startRow=2
 ```
 
-#### 요청 파라미터
+### 요청 파라미터
 
-| 파라미터 | 위치 | 필수 | 기본값 | 설명 |
-|----------|------|------|--------|------|
-| `startRow` | query | 아니오 | 2 | 스캔 시작 행 번호 |
+| 파라미터       | 위치    | 필수  | 기본값 | 설명         |
+| ---------- | ----- | --- | --- | ---------- |
+| `startRow` | query | 아니오 | 2   | 스캔 시작 행 번호 |
 
-#### 응답
+### 응답
 
 **성공 (200)**:
 ```json
@@ -128,7 +132,7 @@ A열에 내용이 있지만 B열이 비어있는 행을 찾습니다. 연속 10�
 
 ---
 
-### 4. 앱 상태 조회
+## 4. 앱 상태 조회
 
 ```
 GET /api/status
@@ -148,30 +152,30 @@ GET /api/status
 }
 ```
 
-| 필드 | 타입 | 설명 |
-|------|------|------|
-| `executionState` | string | 현재 실행 상태 (`idle`, `saving`, `executing`, `completed`, `failed`, `loadingConfig`, `needsRestart`) |
-| `accessMode` | string | Google Sheets 접근 방식 (`API`, `AppsScript`, `Playwright`) |
-| `currentRow` | integer | 현재 데이터 입력 행 번호 |
-| `sheetName` | string | 현재 시트 탭 이름 |
-| `isAuthenticated` | boolean | OAuth 인증 유효 여부 |
-| `restServerPort` | integer | REST 서버 포트 번호 |
+| 필드                | 타입      | 설명                                                                                               |
+| ----------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `executionState`  | string  | 현재 실행 상태 (`idle`, `saving`, `executing`, `completed`, `failed`, `loadingConfig`, `needsRestart`) |
+| `accessMode`      | string  | Google Sheets 접근 방식 (`API`, `AppsScript`, `Playwright`)                                          |
+| `currentRow`      | integer | 현재 데이터 입력 행 번호                                                                                   |
+| `sheetName`       | string  | 현재 시트 탭 이름                                                                                       |
+| `isAuthenticated` | boolean | OAuth 인증 유효 여부                                                                                   |
+| `restServerPort`  | integer | REST 서버 포트 번호                                                                                    |
 
 ---
 
-### 5. 다음 빈 행 조회
+## 5. 다음 빈 행 조회
 
 ```
 GET /api/next-row?startRow=2
 ```
 
-#### 요청 파라미터
+### 요청 파라미터
 
-| 파라미터 | 위치 | 필수 | 기본값 | 설명 |
-|----------|------|------|--------|------|
-| `startRow` | query | 아니오 | 2 | 스캔 시작 행 번호 |
+| 파라미터       | 위치    | 필수  | 기본값 | 설명         |
+| ---------- | ----- | --- | --- | ---------- |
+| `startRow` | query | 아니오 | 2   | 스캔 시작 행 번호 |
 
-#### 응답
+### 응답
 
 **성공 (200)**:
 ```json
@@ -183,9 +187,9 @@ GET /api/next-row?startRow=2
 
 ---
 
-## 사용 예시
+# 사용 예시
 
-### cURL
+## cURL
 
 ```bash
 # 데이터 추가
@@ -211,7 +215,7 @@ curl http://localhost:3013/api/next-row
 curl http://localhost:3013/
 ```
 
-### Python
+## Python
 
 ```python
 import requests
@@ -236,30 +240,30 @@ print(response.json())
 
 ---
 
-## 보안
+# 보안
 
-| 항목 | 설명 |
-|------|------|
-| 기본 상태 | API 서버 **비활성화** |
-| 바인딩 | localhost (127.0.0.1) 전용 |
-| 외부 접속 | 설정 UI 체크박스로 허용 가능 |
-| IP 필터링 | CIDR 범위 설정 (예: `192.168.0.0/24`) |
-| CORS | `Access-Control-Allow-Origin: *` |
-| 거부 응답 | 403 Forbidden (`{"error": "접근 거부: IP가 허용된 CIDR 범위에 포함되지 않습니다"}`) |
+| 항목     | 설명                                                               |
+| ------ | ---------------------------------------------------------------- |
+| 기본 상태  | API 서버 **비활성화**                                                  |
+| 바인딩    | localhost (127.0.0.1) 전용                                         |
+| 외부 접속  | 설정 UI 체크박스로 허용 가능                                                |
+| IP 필터링 | CIDR 범위 설정 (예: `192.168.0.0/24`)                                 |
+| CORS   | `Access-Control-Allow-Origin: *`                                 |
+| 거부 응답  | 403 Forbidden (`{"error": "접근 거부: IP가 허용된 CIDR 범위에 포함되지 않습니다"}`) |
 
 ---
 
-## 앱 UI 연동
+# 앱 UI 연동
 
 REST API 요청 시 앱 UI와 자동으로 연동됩니다:
 
-- `POST /api/add-line` 호출 시 앱 UI 입력란에 데이터가 자동 반영
-- 업로드 완료 후 현재 행 번호 자동 증가
-- 설정 변경은 보안상 REST API에서 **제외** (앱 UI에서만 가능)
+* `POST /api/add-line` 호출 시 앱 UI 입력란에 데이터가 자동 반영
+* 업로드 완료 후 현재 행 번호 자동 증가
+* 설정 변경은 보안상 REST API에서 **제외** (앱 UI에서만 가능)
 
 ---
 
-## 테스트
+# 테스트
 
 ```bash
 # 자동화 테스트 (9개 항목)

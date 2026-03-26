@@ -1,10 +1,14 @@
-# fgooglesheet-mcp
+---
+title: fgooglesheet-mcp
+description: fGoogleSheet MCP server installation and usage guide
+date: 2026-03-26
+---
 
 MCP (Model Context Protocol) server for **fGoogleSheet** — a macOS Google Sheets management application.
 
 This server bridges AI assistants (Claude Code, Claude Desktop, etc.) with fGoogleSheet's REST API, enabling direct Google Sheets operations through natural language.
 
-## Architecture
+# Architecture
 
 ```
 AI Assistant (Claude)
@@ -28,21 +32,21 @@ AI Assistant (Claude)
 └─────────────────────┘
 ```
 
-## Installation
+# Installation
 
-### Option 1: npm global install
+## Option 1: npm global install
 
 ```bash
 npm install -g fgooglesheet-mcp
 ```
 
-### Option 2: npx (no install)
+## Option 2: npx (no install)
 
 ```bash
 npx fgooglesheet-mcp
 ```
 
-### Option 3: From source
+## Option 3: From source
 
 ```bash
 git clone https://github.com/nowage/fGoogleSheet.git
@@ -51,9 +55,9 @@ npm install
 node index.js
 ```
 
-## Configuration
+# Configuration
 
-### Claude Code
+## Claude Code
 
 Add to `~/.claude/settings.json`:
 
@@ -68,7 +72,7 @@ Add to `~/.claude/settings.json`:
 }
 ```
 
-### Claude Desktop
+## Claude Desktop
 
 Add to Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
@@ -83,7 +87,7 @@ Add to Claude Desktop config (`~/Library/Application Support/Claude/claude_deskt
 }
 ```
 
-### Remote Server
+## Remote Server
 
 To connect to a remote fGoogleSheet instance:
 
@@ -114,15 +118,15 @@ Or use the environment variable:
 }
 ```
 
-### Server URL Resolution Order
+## Server URL Resolution Order
 
 1. CLI argument: `--server=<url>`
 2. Environment variable: `FGOOGLESHEET_SERVER`
 3. Default: `http://localhost:3013`
 
-## Tools
+# Tools
 
-### health_check
+## health_check
 
 Check if the fGoogleSheet REST API server is running.
 
@@ -132,7 +136,7 @@ Parameters: none
 
 **Example prompt**: "Is fGoogleSheet running?"
 
-### add_line
+## add_line
 
 Add a key/value pair to Google Sheets.
 
@@ -144,7 +148,7 @@ Parameters:
 
 **Example prompt**: "Add 'What is REST API?' to Google Sheets"
 
-### find_unanswered
+## find_unanswered
 
 Find rows where column A has content but column B is empty.
 
@@ -155,7 +159,7 @@ Parameters:
 
 **Example prompt**: "Show me unanswered questions in the spreadsheet"
 
-### get_status
+## get_status
 
 Get current application status and configuration.
 
@@ -165,7 +169,7 @@ Parameters: none
 
 **Example prompt**: "What's the current status of fGoogleSheet?"
 
-### find_next_row
+## find_next_row
 
 Find the next empty row available for data entry.
 
@@ -176,7 +180,7 @@ Parameters:
 
 **Example prompt**: "What's the next available row?"
 
-## Testing with MCP Inspector
+# Testing with MCP Inspector
 
 ```bash
 npx @modelcontextprotocol/inspector npx fgooglesheet-mcp
@@ -184,12 +188,12 @@ npx @modelcontextprotocol/inspector npx fgooglesheet-mcp
 
 This opens a web UI where you can interactively test each tool.
 
-## Prerequisites
+# Prerequisites
 
-- **fGoogleSheet.app** must be running with REST API enabled
-- REST API server listens on port 3013 by default
-- Node.js >= 18.0.0
+* **fGoogleSheet.app** must be running with REST API enabled
+* REST API server listens on port 3013 by default
+* Node.js >= 18.0.0
 
-## License
+# License
 
 MIT

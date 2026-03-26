@@ -5,8 +5,6 @@ date: 2026.03.14
 tags: [manual, user guide, functional specification]
 ---
 
-# What is fGoogleSheet? (Overview)
-
 fGoogleSheet is a macOS-exclusive productivity maximization tool that provides immediate access to **Google Sheets** from the desktop environment for quickly handling repetitive data recording tasks. It communicates directly with Google Sheets API v4 without complex external dependencies and offers an intuitive UI.
 
 ---
@@ -16,8 +14,8 @@ fGoogleSheet is a macOS-exclusive productivity maximization tool that provides i
 ## 1.1. Key/Value Dual Layout Structure
 The screen is divided into Key (question) and Value (answer) input fields at a 1:3 ratio.
 Users can review long questions or text and quickly enter corresponding answers.
-- Multi-line TextEditor is supported for easy composition of lengthy text.
-- Use the `Tab` key to naturally navigate between Key and Value fields.
+* Multi-line TextEditor is supported for easy composition of lengthy text.
+* Use the `Tab` key to naturally navigate between Key and Value fields.
 
 ## 1.2. Korean Support & Error Handling
 All entered text is safely processed in UTF-8 format, designed to ensure that Korean input is reflected in Google Sheets without any character corruption.
@@ -48,10 +46,10 @@ When accessing a new document (Target Document ID) or when the target sheet tab 
 
 ## 4.2. Global Keyboard Commands
 For efficiency in data input and management, keyboard commands are preferred over mouse clicks.
-- `cmd+k`: Clear input form data
-- `cmd+r`: Save data and send via API
-- `cmd+f`: Check unanswered questions (empty Value fields)
-- `cmd+enter`: Save data, send via API, and hide app
+* `cmd+k`: Clear input form data
+* `cmd+r`: Save data and send via API
+* `cmd+f`: Check unanswered questions (empty Value fields)
+* `cmd+enter`: Save data, send via API, and hide app
 
 ---
 
@@ -62,13 +60,13 @@ fGoogleSheet provides a built-in REST API server based on NWListener. External c
 
 ## 5.2. Available Endpoints
 
-| Method | Path | Function |
-|--------|------|----------|
-| `GET` | `/` | Health check (server status verification) |
-| `POST` | `/api/add-line` | Key/Value data upload |
-| `GET` | `/api/unanswered` | Query unanswered questions |
-| `GET` | `/api/status` | Query app status |
-| `GET` | `/api/next-row` | Query next empty row |
+| Method | Path              | Function                                  |
+| ------ | ----------------- | ----------------------------------------- |
+| `GET`  | `/`               | Health check (server status verification) |
+| `POST` | `/api/add-line`   | Key/Value data upload                     |
+| `GET`  | `/api/unanswered` | Query unanswered questions                |
+| `GET`  | `/api/status`     | Query app status                          |
+| `GET`  | `/api/next-row`   | Query next empty row                      |
 
 ### 5.2.1. `GET /` — Health Check
 Verifies that the server is operating normally.
@@ -93,8 +91,8 @@ curl -X POST http://localhost:3013/api/add-line \
 ```json
 {"success": true, "targetRow": 5, "nextRow": 6, "newQuestionCnt": 2, "hasNewQuestions": true}
 ```
-- `key` (required): Text to enter in column A
-- `value` (optional): Text to enter in column B (empty string allowed)
+* `key` (required): Text to enter in column A
+* `value` (optional): Text to enter in column B (empty string allowed)
 
 ### 5.2.3. `GET /api/unanswered` — Query Unanswered Questions
 Searches for rows where column A has content but column B is empty. Scanning stops after encountering 10 consecutive empty rows.
@@ -152,41 +150,41 @@ curl "http://localhost:3013/api/next-row?startRow=10"
 ```
 
 ## 5.3. Security Policy
-- **Disabled by default**: Must be explicitly enabled in settings to operate
-- **localhost only**: When enabled, binds only to `127.0.0.1` by default
-- **CIDR-based IP filtering**: Requests from outside the allowed range return `403 Forbidden`
-- **External access**: Must be separately enabled in settings for external IP access
-- **Configuration changes excluded**: Sensitive settings such as API Key, OAuth tokens, and URLs cannot be changed via REST API
-- **CORS support**: All responses include `Access-Control-Allow-Origin: *` header
+* **Disabled by default**: Must be explicitly enabled in settings to operate
+* **localhost only**: When enabled, binds only to `127.0.0.1` by default
+* **CIDR-based IP filtering**: Requests from outside the allowed range return `403 Forbidden`
+* **External access**: Must be separately enabled in settings for external IP access
+* **Configuration changes excluded**: Sensitive settings such as API Key, OAuth tokens, and URLs cannot be changed via REST API
+* **CORS support**: All responses include `Access-Control-Allow-Origin: *` header
 
 ### CIDR Configuration Examples
 
-| CIDR | Allowed Range |
-|------|---------------|
-| `127.0.0.1/32` | Local only (default) |
-| `192.168.0.0/24` | 192.168.0.1~254 |
-| `10.0.0.0/8` | All 10.x.x.x |
-| `0.0.0.0/0` | All IPs (use with caution) |
+| CIDR             | Allowed Range              |
+| ---------------- | -------------------------- |
+| `127.0.0.1/32`   | Local only (default)       |
+| `192.168.0.0/24` | 192.168.0.1~254            |
+| `10.0.0.0/8`     | All 10.x.x.x               |
+| `0.0.0.0/0`      | All IPs (use with caution) |
 
 ## 5.4. Server Configuration Items
 
-| Setting | Description | Default |
-|---------|-------------|---------|
-| API Server Enable | REST API server on/off | Disabled |
-| Port | Server listening port number | 3013 |
-| Allow External Access | Allow access from non-local IPs | Disallowed |
-| Allowed CIDR | Allowed IP range (CIDR notation) | `127.0.0.1/32` |
+| Setting               | Description                      | Default        |
+| --------------------- | -------------------------------- | -------------- |
+| API Server Enable     | REST API server on/off           | Disabled       |
+| Port                  | Server listening port number     | 3013           |
+| Allow External Access | Allow access from non-local IPs  | Disallowed     |
+| Allowed CIDR          | Allowed IP range (CIDR notation) | `127.0.0.1/32` |
 
 ## 5.5. HTTP Error Codes
 
-| Code | Situation |
-|------|-----------|
-| `200` | Successful response |
-| `400` | Bad request (missing key, JSON parsing failure) |
+| Code  | Situation                                                      |
+| ----- | -------------------------------------------------------------- |
+| `200` | Successful response                                            |
+| `400` | Bad request (missing key, JSON parsing failure)                |
 | `401` | Authentication failure (OAuth token expired or not configured) |
-| `403` | Access denied (IP outside CIDR range) |
-| `500` | Internal error (Google Sheets API call failure) |
-| `503` | Service unavailable (app initialization incomplete) |
+| `403` | Access denied (IP outside CIDR range)                          |
+| `500` | Internal error (Google Sheets API call failure)                |
+| `503` | Service unavailable (app initialization incomplete)            |
 
 ## 5.6. Automatic UI Sync
 When data is uploaded via REST API, the app UI input fields are automatically updated with the data. Real-time synchronization with ContentView is achieved through NotificationCenter.
@@ -201,11 +199,11 @@ When data is uploaded via REST API, the app UI input fields are automatically up
 fGoogleSheet provides a dedicated plugin (skill) for Claude Code. After installation, you can directly manage Google Sheets data from the Claude Code conversation window using the slash command (`/fgooglesheet`). Since it uses the REST API server as a bridge, the app must be running and REST API must be enabled.
 
 ## 6.2. Key Features
-- **Add data**: Instantly upload Key/Value pairs to Google Sheets
-- **Query unanswered questions**: Search for rows where column A exists but column B is empty
-- **Query app status**: Check execution state, authentication status, sheet information, etc.
-- **Find next empty row**: Query the next data entry position
-- **Server not running notification**: If the REST API server is off, guides user to launch fGoogleSheet.app
+* **Add data**: Instantly upload Key/Value pairs to Google Sheets
+* **Query unanswered questions**: Search for rows where column A exists but column B is empty
+* **Query app status**: Check execution state, authentication status, sheet information, etc.
+* **Find next empty row**: Query the next data entry position
+* **Server not running notification**: If the REST API server is off, guides user to launch fGoogleSheet.app
 
 ## 6.3. Installation
 
@@ -247,17 +245,17 @@ ln -sf agents/claude/skills/fgooglesheet .claude/skills/fgooglesheet
 
 ## 6.5. Options List
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--unanswered` | Query unanswered questions | - |
-| `--status` | Query app status | - |
-| `--next-row` | Find next empty row | - |
-| `--server=<address>` | Change server address | `http://localhost:3013` |
+| Option               | Description                | Default                 |
+| -------------------- | -------------------------- | ----------------------- |
+| `--unanswered`       | Query unanswered questions | -                       |
+| `--status`           | Query app status           | -                       |
+| `--next-row`         | Find next empty row        | -                       |
+| `--server=<address>` | Change server address      | `http://localhost:3013` |
 
 ## 6.6. Prerequisites
-- fGoogleSheet.app must be running
-- REST API server must be enabled in app settings
-- Default server address: `http://localhost:3013`
+* fGoogleSheet.app must be running
+* REST API server must be enabled in app settings
+* Default server address: `http://localhost:3013`
 
 > Plugin details: See `agents/claude/README_kr.md`
 
@@ -280,13 +278,13 @@ The MCP server acts as a bridge that calls fGoogleSheet app's REST API. It uses 
 
 ## 7.3. Available Tools (5)
 
-| Tool Name | Description | Parameters |
-|-----------|-------------|------------|
-| `health_check` | Check REST API server availability | None |
-| `add_line` | Upload Key/Value pair to Google Sheets | `key` (required), `value` (optional) |
-| `find_unanswered` | Query unanswered questions with content in column A but empty column B | `start_row` (optional, default: 2) |
-| `get_status` | Query app status (execution state, authentication, sheet info) | None |
-| `find_next_row` | Query next empty row number | `start_row` (optional, default: 2) |
+| Tool Name         | Description                                                            | Parameters                           |
+| ----------------- | ---------------------------------------------------------------------- | ------------------------------------ |
+| `health_check`    | Check REST API server availability                                     | None                                 |
+| `add_line`        | Upload Key/Value pair to Google Sheets                                 | `key` (required), `value` (optional) |
+| `find_unanswered` | Query unanswered questions with content in column A but empty column B | `start_row` (optional, default: 2)   |
+| `get_status`      | Query app status (execution state, authentication, sheet info)         | None                                 |
+| `find_next_row`   | Query next empty row number                                            | `start_row` (optional, default: 2)   |
 
 ## 7.4. Installation
 
@@ -377,8 +375,8 @@ claude mcp add fgooglesheet npx fgooglesheet-mcp -- --server=http://192.168.1.10
 ```
 
 ## 7.8. Prerequisites
-- Node.js v18 or higher
-- fGoogleSheet.app must be running with REST API enabled
-- MCP-compatible client (Claude Desktop, Claude Code, etc.)
+* Node.js v18 or higher
+* fGoogleSheet.app must be running with REST API enabled
+* MCP-compatible client (Claude Desktop, Claude Code, etc.)
 
 > MCP server source: See `mcp/`
