@@ -98,7 +98,7 @@ async function apiRequest(method, path, body = null) {
 // --- MCP Server Setup ---
 const server = new McpServer({
   name: "fgooglesheet-mcp",
-  version: "1.1.0",
+  version: "1.1.1",
 });
 
 // Tool 1: health_check
