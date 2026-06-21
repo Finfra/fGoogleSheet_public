@@ -148,6 +148,29 @@ Google Sheets에 Key/Value 쌍을 추가합니다.
 
 **사용 예시**: "'REST API란 무엇인가?'를 Google Sheets에 추가해줘"
 
+## set_fields
+
+업로드 없이 앱의 입력 필드만 채웁니다 (Google Sheets에 기록하지 않음).
+
+```
+파라미터:
+  key   (string, 필수) - key 필드에 설정할 내용
+  value (string, 선택) - value 필드에 설정할 내용 (기본값: "")
+```
+
+**사용 예시**: "입력 필드에 'REST API란?'만 채워줘. 아직 업로드는 하지 마"
+
+## clear_range
+
+A1 범위의 모든 값을 비웁니다. API·Playwright 모드에서 지원, AppsScript 모드에서는 건너뜁니다.
+
+```
+파라미터:
+  range (string, 필수) - 비울 A1 범위 (예: "Sheet1!A12:B15")
+```
+
+**사용 예시**: "Sheet1!A12:B15 범위를 비워줘"
+
 ## find_unanswered
 
 A열에 내용이 있지만 B열이 비어있는 미답변 행을 조회합니다.

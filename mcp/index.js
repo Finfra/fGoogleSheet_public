@@ -98,7 +98,7 @@ async function apiRequest(method, path, body = null) {
 // --- MCP Server Setup ---
 const server = new McpServer({
   name: "fgooglesheet-mcp",
-  version: "1.0.0",
+  version: "1.1.0",
 });
 
 // Tool 1: health_check
@@ -128,7 +128,41 @@ server.tool(
   }
 );
 
-// Tool 3: find_unanswered
+// Tool 3: set_fields
+server.tool(
+  "set_fields",
+  "Set the app's input fields (key/value) WITHOUT uploading. Unlike add_line, this does not write to Google Sheets — it only fills the on-screen fields for manual review.",
+  {
+    key: z.string().describe("The key text to set in the app's input field"),
+    value: z
+      .string()
+      .optional()
+      .default("")
+      .describe("The value text to set in the app's input field"),
+  },
+  async ({ key, value }) => {
+    return await apiRequest("POST", "/api/set-fields", { key, value });
+  }
+);
+
+// Tool 4: clear_range
+server.tool(
+  "clear_range",
+  "Clear all values in the given A1 range (e.g. 'Sheet1!A12:B15'). Supported in API and Playwright access modes; skipped in AppsScript mode.",
+  {
+    range: z
+      .string()
+      .describe("A1 range to clear, e.g. 'Sheet1!A12:B15'"),
+  },
+  async ({ range }) => {
+    return await apiRequest(
+      "POST",
+      `/api/clear-range?range=${encodeURIComponent(range)}`
+    );
+  }
+);
+
+// Tool 5: find_unanswered
 server.tool(
   "find_unanswered",
   "Find unanswered questions in Google Sheets. Returns rows where column A has content but column B is empty.",
@@ -144,7 +178,7 @@ server.tool(
   }
 );
 
-// Tool 4: get_status
+// Tool 6: get_status
 server.tool(
   "get_status",
   "Get current status of fGoogleSheet application including configuration and connection state",
@@ -154,7 +188,7 @@ server.tool(
   }
 );
 
-// Tool 5: find_next_row
+// Tool 7: find_next_row
 server.tool(
   "find_next_row",
   "Find the next empty row in Google Sheets for data entry",

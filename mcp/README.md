@@ -148,6 +148,29 @@ Parameters:
 
 **Example prompt**: "Add 'What is REST API?' to Google Sheets"
 
+## set_fields
+
+Fill the app's input fields without uploading (no write to Google Sheets).
+
+```
+Parameters:
+  key   (string, required) - Key field content
+  value (string, optional) - Value field content (default: "")
+```
+
+**Example prompt**: "Set the input fields to 'What is REST API?' but don't upload yet"
+
+## clear_range
+
+Clear all values in an A1 range. Supported in API/Playwright modes; skipped in AppsScript mode.
+
+```
+Parameters:
+  range (string, required) - A1 range to clear (e.g. "Sheet1!A12:B15")
+```
+
+**Example prompt**: "Clear the range Sheet1!A12:B15"
+
 ## find_unanswered
 
 Find rows where column A has content but column B is empty.
