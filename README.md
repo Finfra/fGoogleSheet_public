@@ -87,4 +87,7 @@ Automate and extend fGoogleSheet with AI agents. All integration methods use the
 
 # License
 
-Copyright (c) finfra.kr. All rights reserved.
+[MIT License](./LICENSE) — Copyright (c) 2026 Finfra Co., Ltd. (https://finfra.kr)
+
+* The npm package [`fgooglesheet-mcp`](./mcp/) is published under the same MIT license (`mcp/package.json`).
+* This license covers the contents of this repository only. The fGoogleSheet macOS app distributed through the App Store is licensed separately.

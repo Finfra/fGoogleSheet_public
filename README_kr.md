@@ -87,4 +87,7 @@ AI 에이전트로 fGoogleSheet을 자동화하고 확장하세요. 모든 연�
 
 # 라이선스
 
-Copyright (c) finfra.kr. All rights reserved.
+[MIT License](./LICENSE) — Copyright (c) 2026 Finfra Co., Ltd. (https://finfra.kr)
+
+* npm 패키지 [`fgooglesheet-mcp`](./mcp/) 도 동일한 MIT 라이선스로 배포됩니다 (`mcp/package.json`).
+* 이 라이선스는 본 저장소의 내용에만 적용됩니다. App Store 로 배포되는 fGoogleSheet macOS 앱 본체는 별도 라이선스를 따릅니다.
